@@ -1,15 +1,23 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import authCall from '../utils/apiCalls';
 
 const Login = () => {
   const [phone, setPhone] = useState(1234567890);
   const [password, setPassword] = useState('abc@123');
-
+  const navigate = useNavigate();
   const handleSubmit = (e) => {
     const user = { phone, password };
-    authCall(user);
+    authCall(user, navigate);
     e.preventDefault();
   };
+
+  useEffect(() => {
+    const authState = JSON.parse(localStorage.getItem('authState'));
+    if (authState != null && authState.logged_in) {
+      navigate('/dashboard');
+    }
+  }, []);
 
   return (
     <form onSubmit={handleSubmit}>
