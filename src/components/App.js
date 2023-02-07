@@ -9,7 +9,7 @@ const App = () => {
     if (authState == null || !authState.logged_in) {
       navigate('/');
     }
-  }, []);
+  }, [navigate]);
   return (
     <div className="App">
       <header className="App-header">
