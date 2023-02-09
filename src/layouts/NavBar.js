@@ -18,7 +18,7 @@ const NavBar = () => {
       <p>
         Hi!&nbsp;
       </p>
-      {sessionDetails.user.name ? sessionDetails.user.name.split(' ')[0] : 'there'}
+      {sessionDetails.user && sessionDetails.user.name ? sessionDetails.user.name.split(' ')[0] : 'there'}
       {
       sessionDetails.logged_in && <button type="submit" onClick={handleSignOut}>SignOut</button>
     }
