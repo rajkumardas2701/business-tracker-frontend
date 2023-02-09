@@ -1,24 +1,26 @@
-import { useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useState } from 'react';
+import NavBar from '../layouts/NavBar';
+import SessionContext from '../contexts/SessionContext';
+import Auth from '../containers/Auth';
+import Dashboard from '../containers/Dashboard';
 import '../styles/App.css';
 
 const App = () => {
-  const navigate = useNavigate();
-  useEffect(() => {
-    const authState = JSON.parse(localStorage.getItem('authState'));
-    if (authState == null || !authState.logged_in) {
-      navigate('/');
-    }
-  }, [navigate]);
+  const [sessionDetails, setSessionDetails] = useState({
+    logged_in: localStorage.getItem('authToken') ? JSON.parse(localStorage.getItem('authToken')).logged_in : false,
+    user: {},
+    message: '',
+  });
   return (
     <div className="App">
       <header className="App-header">
-        <p>Dashboard</p>
+        <SessionContext.Provider value={{ sessionDetails, setSessionDetails }}>
+          <NavBar />
+          {sessionDetails.logged_in ? <Dashboard /> : <Auth /> }
+        </SessionContext.Provider>
       </header>
     </div>
   );
 };
 
 export default App;
-
-// const [auth, setAuth] = useState()

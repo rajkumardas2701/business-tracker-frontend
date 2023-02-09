@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client';
 import { RouterProvider } from 'react-router-dom';
 // import App from './components/App';
 // import Pages from './Pages';
-import Router from './Pages';
+import Router from './Router';
 import './styles/index.css';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
