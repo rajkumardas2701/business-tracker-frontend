@@ -1,0 +1,27 @@
+.navbar-body {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+  background-color: blueviolet;
+}
+
+.user-greet {
+  display: flex;
+  flex-direction: row;
+  margin: auto;
+  width: 20%;
+  justify-content: center;
+  color: aliceblue;
+  font-weight: bolder;
+}
+
+.navbar-name {
+  text-transform: capitalize;
+}
+
+.signout-btn {
+  justify-content: end;
+  min-width: 10%;
+  margin-right: 10px;
+}
