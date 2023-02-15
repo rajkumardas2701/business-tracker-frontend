@@ -1,6 +1,6 @@
 import { useContext, useState, useEffect } from 'react';
 import SessionContext from '../contexts/SessionContext';
-import authCall from '../utils/apiCalls';
+import { authCall } from '../utils/apiCalls';
 import '../styles/AuthForm.css';
 
 const Signup = () => {

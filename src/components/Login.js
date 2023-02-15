@@ -1,5 +1,5 @@
 import { useState, useContext, useEffect } from 'react';
-import authCall from '../utils/apiCalls';
+import { authCall } from '../utils/apiCalls';
 import SessionContext from '../contexts/SessionContext';
 import '../styles/AuthForm.css';
 

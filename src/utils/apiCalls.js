@@ -25,4 +25,18 @@ const authCall = async (user, setSessionDetails, type) => {
   }
 };
 
-export default authCall;
+const dealsCall = async (setDeals) => {
+  try {
+    const result = await axios.get('http://127.0.0.1:3000/deals', {
+      headers: {
+        Authorization: `${JSON.parse(localStorage.getItem('authToken')).token}`,
+      },
+    }, { withCredentials: true });
+    // console.log(result.data.deals);
+    setDeals(result.data.deals);
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export { authCall, dealsCall };
