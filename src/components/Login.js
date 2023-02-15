@@ -23,6 +23,7 @@ const Login = () => {
 
   return (
     <div className="form-container">
+      <h2>Login to Business Tracker</h2>
       <form onSubmit={handleSubmit}>
         <div className="form-elements">
           <p>
