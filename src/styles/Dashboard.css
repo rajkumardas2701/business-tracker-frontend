@@ -1,3 +1,23 @@
 .dashboard-container {
   margin-top: 55px;
+  width: 100%;
+}
+
+.dashboard-msg {
+  color: azure;
+  font-weight: bolder;
+  width: 20%;
+  margin: auto;
+  position: fixed;
+  top: 60px;
+  left: 40%;
+  text-align: center;
+}
+
+.msg-ok {
+  background-color: green;
+}
+
+.msg-err {
+  background-color: red;
 }

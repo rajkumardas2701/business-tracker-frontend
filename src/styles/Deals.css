@@ -1,0 +1,23 @@
+.create-deal {
+  width: 25%;
+  position: fixed;
+  bottom: 0%;
+  left: 2%;
+  margin: auto;
+  height: 5%;
+  color: white;
+  background-color: green;
+  font-size: larger;
+  font-weight: bolder;
+}
+
+.deals-list {
+  width: 100%;
+  height: 90vh;
+  overflow-y: scroll;
+}
+
+.deals-container {
+  width: 30%;
+  height: fit-content;
+}

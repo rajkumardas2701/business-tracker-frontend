@@ -6,6 +6,7 @@ const authCall = async (user, setSessionDetails, type) => {
     localStorage.setItem('authToken', JSON.stringify({
       logged_in: result.data.logged_in,
       token: result.data.token,
+      user: result.data.user,
     }));
     setSessionDetails({
       logged_in: result.data.logged_in,
@@ -25,17 +26,28 @@ const authCall = async (user, setSessionDetails, type) => {
   }
 };
 
-const dealsCall = async (setDeals) => {
+const dealsCall = async (setDeals, setApiMsg, setShowMessage, setMsgColor) => {
   try {
     const result = await axios.get('http://127.0.0.1:3000/deals', {
       headers: {
         Authorization: `${JSON.parse(localStorage.getItem('authToken')).token}`,
       },
     }, { withCredentials: true });
-    // console.log(result.data.deals);
     setDeals(result.data.deals);
+    setApiMsg(result.data.message);
+    setShowMessage(true);
+    setMsgColor('msg-ok');
+    setTimeout(() => {
+      setShowMessage(false);
+    }, 5000);
   } catch (error) {
-    console.log(error);
+    setDeals(error.response ? error.response.data.deals : []);
+    setApiMsg(error.response ? error.response.data.message : error.message);
+    setShowMessage(true);
+    setMsgColor('msg-err');
+    setTimeout(() => {
+      setShowMessage(false);
+    }, 5000);
   }
 };
 

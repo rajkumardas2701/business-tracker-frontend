@@ -8,7 +8,7 @@ import '../styles/App.css';
 const App = () => {
   const [sessionDetails, setSessionDetails] = useState({
     logged_in: localStorage.getItem('authToken') ? JSON.parse(localStorage.getItem('authToken')).logged_in : false,
-    user: {},
+    user: localStorage.getItem('authToken') ? JSON.parse(localStorage.getItem('authToken')).user : {},
     message: '',
   });
   return (
