@@ -1,22 +1,30 @@
-import { useState, useContext } from 'react';
+import { useState, useContext, useEffect } from 'react';
 import authCall from '../utils/apiCalls';
 import SessionContext from '../contexts/SessionContext';
+import '../styles/AuthForm.css';
 
 const Login = () => {
   const [phone, setPhone] = useState('');
   const [password, setPassword] = useState('');
-  const { setSessionDetails } = useContext(SessionContext);
+  const [showMessage, setShowMessage] = useState(false);
+  const { sessionDetails, setSessionDetails } = useContext(SessionContext);
   const handleSubmit = (e) => {
     const user = { phone, password };
     authCall(user, setSessionDetails, 'login');
     e.preventDefault();
   };
 
-  return (
-    <div>
+  useEffect(() => {
+    setShowMessage(true);
+    setTimeout(() => {
+      setShowMessage(false);
+    }, 5000);
+  }, [sessionDetails]);
 
+  return (
+    <div className="form-container">
       <form onSubmit={handleSubmit}>
-        <div>
+        <div className="form-elements">
           <p>
             Phone:
           </p>
@@ -30,7 +38,7 @@ const Login = () => {
           />
         </div>
 
-        <div>
+        <div className="form-elements">
           <p>
             Password:
           </p>
@@ -44,7 +52,8 @@ const Login = () => {
           />
         </div>
 
-        <button type="submit">Sign In</button>
+        <button type="submit" className="form-btn">Sign In</button>
+        {showMessage && sessionDetails.message !== '' && <p style={{ color: 'red' }}>{sessionDetails.message}</p>}
 
       </form>
     </div>

@@ -1,14 +1,17 @@
-import { useContext, useState } from 'react';
+import { useContext, useState, useEffect } from 'react';
 import SessionContext from '../contexts/SessionContext';
 import authCall from '../utils/apiCalls';
+import '../styles/AuthForm.css';
 
 const Signup = () => {
-  const [phone, setPhone] = useState('9876543210');
-  const [name, setName] = useState('test 2');
-  const [password, setPassword] = useState('abc@123');
-  const [confirmPassword, setConfirmPassword] = useState('abc@123');
-  const [email, setEmail] = useState('abc@gmail.com');
-  const { setSessionDetails } = useContext(SessionContext);
+  const [phone, setPhone] = useState('');
+  const [name, setName] = useState('');
+  const [password, setPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
+  const [email, setEmail] = useState('');
+  const [showMessage, setShowMessage] = useState(false);
+  const [isDisabled, setIsDisabled] = useState(true);
+  const { sessionDetails, setSessionDetails } = useContext(SessionContext);
 
   const handleSubmit = (e) => {
     const user = {
@@ -18,10 +21,21 @@ const Signup = () => {
     e.preventDefault();
   };
 
+  useEffect(() => {
+    setShowMessage(true);
+    setTimeout(() => setShowMessage(false), 5000);
+  }, [sessionDetails]);
+
+  function handleConfirmPassword(e) {
+    e.preventDefault();
+    setConfirmPassword(e.target.value);
+    setIsDisabled(!(e.target.value === password));
+  }
+
   return (
-    <div>
+    <div className="form-container">
       <form onSubmit={handleSubmit}>
-        <div>
+        <div className="form-elements">
           <p>
             Name:
           </p>
@@ -35,7 +49,7 @@ const Signup = () => {
           />
         </div>
 
-        <div>
+        <div className="form-elements">
           <p>
             Email:
           </p>
@@ -47,7 +61,7 @@ const Signup = () => {
             onChange={(e) => setEmail(e.target.value)}
           />
         </div>
-        <div>
+        <div className="form-elements">
           <p>
             Phone:
           </p>
@@ -61,7 +75,7 @@ const Signup = () => {
           />
         </div>
 
-        <div>
+        <div className="form-elements">
           <p>
             Password:
           </p>
@@ -75,7 +89,7 @@ const Signup = () => {
           />
         </div>
 
-        <div>
+        <div className="form-elements">
           <p>
             Confirm Password:
           </p>
@@ -84,13 +98,13 @@ const Signup = () => {
             type="password"
             name="confirmPassword"
             value={confirmPassword}
-            onChange={(e) => setConfirmPassword(e.target.value)}
+            onChange={(e) => handleConfirmPassword(e)}
             required
           />
         </div>
-
-        <button type="submit">Sign Up</button>
-
+        <button type="submit" className="form-btn" disabled={isDisabled}>Sign Up</button>
+        {isDisabled && confirmPassword !== '' && <p style={{ color: 'red' }}>Passwords don&apos;t match</p>}
+        {showMessage && sessionDetails.message !== '' && <p style={{ color: 'red' }}>{sessionDetails.message}</p>}
       </form>
     </div>
   );
