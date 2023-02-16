@@ -1,6 +1,8 @@
-import { useState } from 'react';
+import { useContext, useState } from 'react';
+import DashboardContext from '../contexts/DashboardContext';
 import '../styles/AuthForm.css';
 import '../styles/CreateDeal.css';
+import { postDeal } from '../utils/apiCalls';
 
 const CreateDeal = () => {
   const [vehicle, setVehicle] = useState('');
@@ -15,8 +17,28 @@ const CreateDeal = () => {
   const [dRate, setDRate] = useState(0.0);
   const [fActualAmount, setFActualAmount] = useState(0.0);
   const [dActualAmount, setDActualAmount] = useState(0.0);
+  const {
+    setDeals, setApiMsg, setShowMessage, setMsgColor,
+  } = useContext(DashboardContext);
 
-  const handleSubmit = () => {};
+  const handleSubmit = (e) => {
+    const formData = {
+      vehicle,
+      date,
+      fName,
+      fQuantity,
+      fDiscount,
+      fRate,
+      dName,
+      dQuantity,
+      dDiscount,
+      dRate,
+      fActualAmount,
+      dActualAmount,
+    };
+    postDeal(setDeals, setApiMsg, setShowMessage, setMsgColor, formData);
+    e.preventDefault();
+  };
   return (
     <div className="form-container create-deal-container">
       <h2>Create a new Deal</h2>
@@ -40,7 +62,7 @@ const CreateDeal = () => {
             Date:
           </p>
           <input
-            placeholder="Enter valid email"
+            placeholder="YYYY/MM/DD"
             type="date"
             name="date"
             value={date}
@@ -53,7 +75,7 @@ const CreateDeal = () => {
             Farmer Name:
           </p>
           <input
-            placeholder="Indian Phone number"
+            placeholder="Farmer's name"
             type="text"
             name="fName"
             value={fName}
@@ -63,10 +85,10 @@ const CreateDeal = () => {
 
         <div className="form-elements">
           <p>
-            Farmer Quantity (in KG):
+            Farmer Quantity:
           </p>
           <input
-            placeholder="Password"
+            placeholder="Enter in KG"
             type="number"
             name="fQuantity"
             value={fQuantity}
@@ -79,7 +101,7 @@ const CreateDeal = () => {
             Farmer Discount:
           </p>
           <input
-            placeholder="Re-enter Password"
+            placeholder="Enter in number"
             type="number"
             name="fDiscount"
             value={fDiscount}
@@ -92,7 +114,7 @@ const CreateDeal = () => {
             Farmer Rate:
           </p>
           <input
-            placeholder="Re-enter Password"
+            placeholder="Rate at which purchased"
             type="number"
             name="fRate"
             value={fRate}
@@ -105,7 +127,7 @@ const CreateDeal = () => {
             Dealer Name:
           </p>
           <input
-            placeholder="Re-enter Password"
+            placeholder="Dealer's name"
             type="text"
             name="dName"
             value={dName}
@@ -118,7 +140,7 @@ const CreateDeal = () => {
             Dealer Quantity:
           </p>
           <input
-            placeholder="Re-enter Password"
+            placeholder="Enter in KG"
             type="number"
             name="dQuantity"
             value={dQuantity}
@@ -131,7 +153,7 @@ const CreateDeal = () => {
             Dealer Discount:
           </p>
           <input
-            placeholder="Re-enter Password"
+            placeholder="Enter in KG"
             type="number"
             name="dDiscount"
             value={dDiscount}
@@ -144,7 +166,7 @@ const CreateDeal = () => {
             Dealer Rate:
           </p>
           <input
-            placeholder="Re-enter Password"
+            placeholder="Enter in Number"
             type="number"
             name="dRate"
             value={dRate}
@@ -157,7 +179,7 @@ const CreateDeal = () => {
             Farmer Actual Amount:
           </p>
           <input
-            placeholder="Re-enter Password"
+            placeholder="Enter amount"
             type="number"
             name="fActualAmount"
             value={fActualAmount}
@@ -170,7 +192,7 @@ const CreateDeal = () => {
             Dealer Actual Amount:
           </p>
           <input
-            placeholder="Re-enter Password"
+            placeholder="Enter amount"
             type="number"
             name="dActualAmount"
             value={dActualAmount}

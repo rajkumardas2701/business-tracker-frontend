@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { dealsCall } from '../utils/apiCalls';
+import { fetchDeals } from '../utils/apiCalls';
 import DashboardContext from '../contexts/DashboardContext';
 import Deals from './Deals';
 import '../styles/Dashboard.css';
@@ -10,7 +10,7 @@ const Dashboard = () => {
   const [showMessage, setShowMessage] = useState(false);
   const [msgColor, setMsgColor] = useState('');
   useEffect(() => {
-    dealsCall(setDeals, setApiMsg, setShowMessage, setMsgColor);
+    fetchDeals(setDeals, setApiMsg, setShowMessage, setMsgColor, 'get');
   }, []);
 
   return (
@@ -19,7 +19,7 @@ const Dashboard = () => {
         showMessage && apiMsg !== '' && <p className={`dashboard-msg ${msgColor}`}>{apiMsg}</p>
       }
       <DashboardContext.Provider value={{
-        deals, setDeals, apiMsg, setApiMsg,
+        deals, setDeals, apiMsg, setApiMsg, setShowMessage, setMsgColor,
       }}
       >
         <Deals />

@@ -26,7 +26,7 @@ const authCall = async (user, setSessionDetails, type) => {
   }
 };
 
-const dealsCall = async (setDeals, setApiMsg, setShowMessage, setMsgColor) => {
+const fetchDeals = async (setDeals, setApiMsg, setShowMessage, setMsgColor) => {
   try {
     const result = await axios.get('http://127.0.0.1:3000/deals', {
       headers: {
@@ -51,4 +51,28 @@ const dealsCall = async (setDeals, setApiMsg, setShowMessage, setMsgColor) => {
   }
 };
 
-export { authCall, dealsCall };
+const postDeal = async (setDeals, setApiMsg, setShowMessage, setMsgColor, formData) => {
+  try {
+    const result = await axios.post('http://127.0.0.1:3000/deals', { formData }, {
+      headers: {
+        Authorization: `${JSON.parse(localStorage.getItem('authToken')).token}`,
+      },
+    }, { withCredentials: true });
+    setDeals(result.data.deals);
+    setApiMsg(result.data.message);
+    setShowMessage(true);
+    setMsgColor('msg-ok');
+    setTimeout(() => {
+      setShowMessage(false);
+    }, 5000);
+  } catch (error) {
+    setApiMsg(error.response ? error.response.data.message : error.message);
+    setShowMessage(true);
+    setMsgColor('msg-err');
+    setTimeout(() => {
+      setShowMessage(false);
+    }, 5000);
+  }
+};
+
+export { authCall, fetchDeals, postDeal };

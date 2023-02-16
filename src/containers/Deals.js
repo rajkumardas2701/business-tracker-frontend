@@ -1,7 +1,7 @@
 import { useContext, useState } from 'react';
 import DashboardContext from '../contexts/DashboardContext';
 import Deal from '../components/Deal';
-import CreateDeal from '../layouts/CreateDeal';
+import CreateDeal from '../components/CreateDeal';
 import '../styles/Deals.css';
 
 const Deals = () => {
