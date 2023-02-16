@@ -1,17 +1,18 @@
-import { useEffect, useState } from 'react';
+import { useContext, useEffect } from 'react';
 import '../styles/SideTransactions.css';
 import Transaction from '../components/Transaction';
 import { fetchSideTxs } from '../utils/apiCalls';
+import DashboardContext from '../contexts/DashboardContext';
 
 const SideTransactions = () => {
-  const [sTxs, setSTxs] = useState([]);
+  const { sTxs, setSTxs } = useContext(DashboardContext);
   useEffect(() => {
     fetchSideTxs(setSTxs);
   }, []);
   return (
     <div className="side-transactions-container">
       <div className="side-transactions-list">
-        <h3 style={{ marginTop: '10px' }}>Side Transactions</h3>
+        <h3 style={{ marginTop: '10px' }}>Other Transactions</h3>
         <table>
           <thead style={{ textAlign: 'center', margin: 'auto' }}>
             <tr>
@@ -24,7 +25,10 @@ const SideTransactions = () => {
               <td>
                 Sent/Received
               </td>
-              <td style={{ width: '50%' }}>
+              <td>
+                Transacted By
+              </td>
+              <td style={{ width: '40%' }}>
                 Remark
               </td>
             </tr>

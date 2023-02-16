@@ -10,8 +10,9 @@ const Dashboard = () => {
   const [apiMsg, setApiMsg] = useState('');
   const [showMessage, setShowMessage] = useState(false);
   const [msgColor, setMsgColor] = useState('');
+  const [sTxs, setSTxs] = useState(DashboardContext);
   useEffect(() => {
-    fetchDeals(setDeals, setApiMsg, setShowMessage, setMsgColor, 'get');
+    fetchDeals(setDeals, setApiMsg, setShowMessage, setMsgColor);
   }, []);
 
   return (
@@ -20,7 +21,7 @@ const Dashboard = () => {
         showMessage && apiMsg !== '' && <p className={`dashboard-msg ${msgColor}`}>{apiMsg}</p>
       }
       <DashboardContext.Provider value={{
-        deals, setDeals, apiMsg, setApiMsg, setShowMessage, setMsgColor,
+        deals, setDeals, apiMsg, setApiMsg, setShowMessage, setMsgColor, sTxs, setSTxs,
       }}
       >
         <Deals />

@@ -88,6 +88,19 @@ const fetchSideTxs = async (setSTxs) => {
   }
 };
 
+const postTx = async (setSTxs, formData) => {
+  try {
+    const result = await axios.post('http://127.0.0.1:3000/financial_transactions', { formData }, {
+      headers: {
+        Authorization: `${JSON.parse(localStorage.getItem('authToken')).token}`,
+      },
+    }, { withCredentials: true });
+    setSTxs(result.data.fts);
+  } catch (error) {
+    console.log(error);
+  }
+};
+
 export {
-  authCall, fetchDeals, postDeal, fetchSideTxs,
+  authCall, fetchDeals, postDeal, fetchSideTxs, postTx,
 };

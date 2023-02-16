@@ -1,13 +1,17 @@
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import PropTypes from 'prop-types';
 import '../styles/AuthForm.css';
+import '../styles/CreateTransaction.css';
+import { postTx } from '../utils/apiCalls';
+import DashboardContext from '../contexts/DashboardContext';
 
 const CreateTransaction = ({ setShowCreateTransaction }) => {
   const [date, setDate] = useState('');
   const [actionBy, setActionBy] = useState('');
-  const [sentReceive, setSentReceive] = useState('');
+  const [sentReceive, setSentReceive] = useState('Sent');
   const [amount, setAmount] = useState(0);
   const [remark, setRemark] = useState('');
+  const { setSTxs } = useContext(DashboardContext);
 
   const handleFormCancel = (e) => {
     setDate('');
@@ -19,8 +23,17 @@ const CreateTransaction = ({ setShowCreateTransaction }) => {
     e.preventDefault();
   };
 
-  const handleSubmit = () => {
-
+  const handleSubmit = (e) => {
+    const formData = {
+      date,
+      action_by: actionBy,
+      send_receive: sentReceive,
+      amount,
+      remark,
+    };
+    postTx(setSTxs, formData);
+    setShowCreateTransaction(false);
+    e.preventDefault();
   };
 
   return (
@@ -57,14 +70,18 @@ const CreateTransaction = ({ setShowCreateTransaction }) => {
           <p>
             Sent/Received:
           </p>
-          <input
-            placeholder="Amount Sent or Received"
-            type="text"
-            name="sentReceive"
-            value={sentReceive}
-            onChange={(e) => setSentReceive(e.target.value)}
-            required
-          />
+          <label htmlFor="drop-down">
+            <select
+              id="drop-down"
+              name="sentReceive"
+              value={sentReceive}
+              onChange={(e) => setSentReceive(e.target.value)}
+              required
+            >
+              <option value="Sent">Sent</option>
+              <option value="Received">Received</option>
+            </select>
+          </label>
         </div>
         <div className="form-elements">
           <p>

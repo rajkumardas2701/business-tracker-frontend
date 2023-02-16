@@ -8,8 +8,11 @@ const Transaction = ({ sTx }) => (
     <td>
       {sTx.amount}
     </td>
-    <td style={{ color: (sTx.send_receive === 'sent') ? 'red' : 'green' }}>
+    <td style={{ color: (sTx.send_receive === 'Sent') ? 'red' : 'green' }}>
       {sTx.send_receive}
+    </td>
+    <td>
+      {sTx.action_by}
     </td>
     <td>
       {sTx.remark}
