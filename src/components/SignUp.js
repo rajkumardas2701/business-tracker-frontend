@@ -21,6 +21,15 @@ const Signup = () => {
     e.preventDefault();
   };
 
+  const handleFormCancel = (e) => {
+    setPhone('');
+    setName('');
+    setPassword('');
+    setConfirmPassword('');
+    setEmail('');
+    e.preventDefault();
+  };
+
   useEffect(() => {
     setShowMessage(true);
     setTimeout(() => setShowMessage(false), 5000);
@@ -103,7 +112,10 @@ const Signup = () => {
             required
           />
         </div>
-        <button type="submit" className="form-btn" disabled={isDisabled}>Sign Up</button>
+        <div className="btn-container">
+          <button type="submit" className="form-btn" disabled={isDisabled}>Sign Up</button>
+          <button type="submit" className="form-btn" onClick={handleFormCancel}>Cancel</button>
+        </div>
         {isDisabled && confirmPassword !== '' && <p style={{ color: 'red' }}>Passwords don&apos;t match</p>}
         {showMessage && sessionDetails.message !== '' && <p style={{ color: 'red' }}>{sessionDetails.message}</p>}
       </form>

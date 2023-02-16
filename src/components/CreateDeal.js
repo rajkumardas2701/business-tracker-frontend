@@ -1,10 +1,11 @@
 import { useContext, useState } from 'react';
+import PropTypes from 'prop-types';
 import DashboardContext from '../contexts/DashboardContext';
 import '../styles/AuthForm.css';
 import '../styles/CreateDeal.css';
 import { postDeal } from '../utils/apiCalls';
 
-const CreateDeal = () => {
+const CreateDeal = ({ setShowCreateDeal }) => {
   const [vehicle, setVehicle] = useState('');
   const [date, setDate] = useState('');
   const [fName, setFName] = useState('');
@@ -37,6 +38,23 @@ const CreateDeal = () => {
       dActualAmount,
     };
     postDeal(setDeals, setApiMsg, setShowMessage, setMsgColor, formData);
+    e.preventDefault();
+  };
+
+  const handleFormCancel = (e) => {
+    setVehicle('');
+    setDate('');
+    setFName('');
+    setFQuantity(0);
+    setFDiscount(0.0);
+    setFRate(0.0);
+    setDName('');
+    setDQuantity(0);
+    setDDiscount(0.0);
+    setDRate(0.0);
+    setFActualAmount(0.0);
+    setDActualAmount(0.0);
+    setShowCreateDeal(false);
     e.preventDefault();
   };
   return (
@@ -199,10 +217,18 @@ const CreateDeal = () => {
             onChange={(e) => setDActualAmount(e.target.value)}
           />
         </div>
-        <button type="submit" className="form-btn">Submit</button>
+        <div className="btn-container">
+          <button type="submit" className="form-btn">Submit</button>
+          <button type="submit" className="form-btn" onClick={handleFormCancel}>Cancel</button>
+        </div>
+
       </form>
     </div>
   );
+};
+
+CreateDeal.propTypes = {
+  setShowCreateDeal: PropTypes.func.isRequired,
 };
 
 export default CreateDeal;

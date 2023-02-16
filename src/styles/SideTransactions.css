@@ -1,0 +1,18 @@
+.side-transactions-container {
+  width: 40%;
+}
+
+.side-transactions-list {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.side-transactions-list > table > thead > tr > td,
+.side-transactions-list > table > tbody > tr > td {
+  border: 1px solid black;
+}
+
+.side-transactions-list > table > thead > tr > td {
+  font-weight: bolder;
+}

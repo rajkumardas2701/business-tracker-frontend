@@ -13,7 +13,11 @@ const Login = () => {
     authCall(user, setSessionDetails, 'login');
     e.preventDefault();
   };
-
+  const handleFormCancel = (e) => {
+    setPhone('');
+    setPassword('');
+    e.preventDefault();
+  };
   useEffect(() => {
     setShowMessage(true);
     setTimeout(() => {
@@ -52,8 +56,11 @@ const Login = () => {
             required
           />
         </div>
+        <div className="btn-container">
+          <button type="submit" className="form-btn">Sign In</button>
+          <button type="submit" className="form-btn" onClick={handleFormCancel}>Cancel</button>
+        </div>
 
-        <button type="submit" className="form-btn">Sign In</button>
         {showMessage && sessionDetails.message !== '' && <p style={{ color: 'red' }}>{sessionDetails.message}</p>}
 
       </form>

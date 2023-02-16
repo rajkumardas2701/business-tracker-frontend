@@ -1,22 +1,30 @@
 .create-deal {
-  width: 25%;
+  width: 20%;
   position: fixed;
   bottom: 0%;
-  left: 2%;
-  margin: auto;
+  left: 0%;
+  margin: auto 25px;
   height: 5vh;
   color: white;
   background-color: green;
   font-size: larger;
   font-weight: bolder;
+  border-radius: 10px;
+  cursor: pointer;
 }
 
 .deals-list {
-  width: 100%;
+  width: 40%;
   height: 90vh;
   overflow-y: scroll;
 }
 
 .deals-container {
-  width: 30%;
+  width: 60%;
+  border-right: 4px solid blueviolet;
+}
+
+.deal-transact {
+  display: flex;
+  flex-direction: row;
 }

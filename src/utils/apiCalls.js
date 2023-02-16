@@ -75,4 +75,19 @@ const postDeal = async (setDeals, setApiMsg, setShowMessage, setMsgColor, formDa
   }
 };
 
-export { authCall, fetchDeals, postDeal };
+const fetchSideTxs = async (setSTxs) => {
+  try {
+    const result = await axios.get('http://127.0.0.1:3000/side_transactions', {
+      headers: {
+        Authorization: `${JSON.parse(localStorage.getItem('authToken')).token}`,
+      },
+    }, { withCredentials: true });
+    setSTxs(result.data.fts);
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export {
+  authCall, fetchDeals, postDeal, fetchSideTxs,
+};

@@ -3,6 +3,7 @@ import { fetchDeals } from '../utils/apiCalls';
 import DashboardContext from '../contexts/DashboardContext';
 import Deals from './Deals';
 import '../styles/Dashboard.css';
+import SideTransactions from './SideTransactions';
 
 const Dashboard = () => {
   const [deals, setDeals] = useState([]);
@@ -23,6 +24,7 @@ const Dashboard = () => {
       }}
       >
         <Deals />
+        <SideTransactions />
       </DashboardContext.Provider>
     </div>
   );
