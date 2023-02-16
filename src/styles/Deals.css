@@ -1,8 +1,6 @@
-.create-deal {
+.create-deal,
+.create-transaction {
   width: 20%;
-  position: fixed;
-  bottom: 0%;
-  left: 0%;
   margin: auto 25px;
   height: 5vh;
   color: white;
@@ -11,6 +9,18 @@
   font-weight: bolder;
   border-radius: 10px;
   cursor: pointer;
+}
+
+.create-deal {
+  position: fixed;
+  bottom: 0%;
+  left: 0%;
+}
+
+.create-transaction {
+  position: fixed;
+  bottom: 0%;
+  left: 50%;
 }
 
 .deals-list {
