@@ -101,6 +101,19 @@ const postTx = async (setSTxs, formData) => {
   }
 };
 
+const updateTx = async (formData, setSTxs) => {
+  try {
+    const result = await axios.patch(`http://127.0.0.1:3000/financial_transactions/${formData.id}`, { formData }, {
+      headers: {
+        Authorization: `${JSON.parse(localStorage.getItem('authToken')).token}`,
+      },
+    }, { withCredentials: true });
+    setSTxs(result.data.fts);
+  } catch (error) {
+    console.log(error);
+  }
+};
+
 export {
-  authCall, fetchDeals, postDeal, fetchSideTxs, postTx,
+  authCall, fetchDeals, postDeal, fetchSideTxs, postTx, updateTx,
 };

@@ -4,10 +4,11 @@ import Deal from '../components/Deal';
 import CreateDeal from '../components/CreateDeal';
 import DealTransactions from './DealTransactions';
 import CreateTransaction from '../components/CreateTransaction';
+import EditTransaction from '../components/EditTransaction';
 import '../styles/Deals.css';
 
 const Deals = () => {
-  const { deals } = useContext(DashboardContext);
+  const { deals, showEditTransactionForm } = useContext(DashboardContext);
   const [showCreateDeal, setShowCreateDeal] = useState(false);
   const [showCreateTransaction, setShowCreateTransaction] = useState(false);
   const handleCreateDeal = (e) => {
@@ -20,6 +21,7 @@ const Deals = () => {
   };
   return (
     <div className="deals-container">
+      <h3 style={{ marginTop: '10px', textAlign: 'center' }}>Deals related Transactions</h3>
       <div className="deal-transact">
         <div className="deals-list">
           {
@@ -44,6 +46,7 @@ const Deals = () => {
         setShowCreateTransaction={setShowCreateTransaction}
       />
       )}
+      { showEditTransactionForm && <EditTransaction /> }
     </div>
   );
 };

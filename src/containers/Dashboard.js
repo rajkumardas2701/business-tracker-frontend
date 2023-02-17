@@ -10,7 +10,10 @@ const Dashboard = () => {
   const [apiMsg, setApiMsg] = useState('');
   const [showMessage, setShowMessage] = useState(false);
   const [msgColor, setMsgColor] = useState('');
-  const [sTxs, setSTxs] = useState(DashboardContext);
+  // need to check below
+  const [sTxs, setSTxs] = useState([DashboardContext]);
+  const [showEditTransactionForm, setShowEditTransactionForm] = useState(false);
+  const [editFormData, setEditFormData] = useState({});
   useEffect(() => {
     fetchDeals(setDeals, setApiMsg, setShowMessage, setMsgColor);
   }, []);
@@ -21,7 +24,18 @@ const Dashboard = () => {
         showMessage && apiMsg !== '' && <p className={`dashboard-msg ${msgColor}`}>{apiMsg}</p>
       }
       <DashboardContext.Provider value={{
-        deals, setDeals, apiMsg, setApiMsg, setShowMessage, setMsgColor, sTxs, setSTxs,
+        deals,
+        setDeals,
+        apiMsg,
+        setApiMsg,
+        setShowMessage,
+        setMsgColor,
+        sTxs,
+        setSTxs,
+        showEditTransactionForm,
+        setShowEditTransactionForm,
+        editFormData,
+        setEditFormData,
       }}
       >
         <Deals />

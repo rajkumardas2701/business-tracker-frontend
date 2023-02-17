@@ -26,10 +26,16 @@ const SideTransactions = () => {
                 Sent/Received
               </td>
               <td>
-                Transacted By
+                Action by
               </td>
-              <td style={{ width: '40%' }}>
+              <td style={{ width: '30%' }}>
                 Remark
+              </td>
+              <td>
+                Edit
+              </td>
+              <td>
+                Delete
               </td>
             </tr>
           </thead>
