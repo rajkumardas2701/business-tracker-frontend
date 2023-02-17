@@ -1,0 +1,13 @@
+.balance-container {
+  border: 1px solid black;
+  height: 50px;
+  width: 15%;
+  position: fixed;
+  left: 2%;
+  text-align: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  color: aliceblue;
+  font-weight: bolder;
+}

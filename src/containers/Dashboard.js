@@ -4,6 +4,7 @@ import DashboardContext from '../contexts/DashboardContext';
 import Deals from './Deals';
 import '../styles/Dashboard.css';
 import SideTransactions from './SideTransactions';
+import Balance from '../layouts/Balance';
 
 const Dashboard = () => {
   const [deals, setDeals] = useState([]);
@@ -37,6 +38,7 @@ const Dashboard = () => {
         setEditFormData,
       }}
       >
+        <Balance />
         <Deals />
         <SideTransactions />
       </DashboardContext.Provider>
