@@ -10,8 +10,7 @@ const Dashboard = () => {
   const [apiMsg, setApiMsg] = useState('');
   const [showMessage, setShowMessage] = useState(false);
   const [msgColor, setMsgColor] = useState('');
-  // need to check below
-  const [sTxs, setSTxs] = useState([DashboardContext]);
+  const [sTxs, setSTxs] = useState([]);
   const [showEditTransactionForm, setShowEditTransactionForm] = useState(false);
   const [editFormData, setEditFormData] = useState({});
   useEffect(() => {
