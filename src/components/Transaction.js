@@ -4,7 +4,10 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEdit, faTrash } from '@fortawesome/free-solid-svg-icons';
 import DashboardContext from '../contexts/DashboardContext';
 
-const Transaction = ({ sTx }) => {
+const Transaction = ({
+  sTx,
+  setShowDeleteWarning, showDeleteWarning, setDeleteTxID,
+}) => {
   const {
     setShowEditTransactionForm,
     showEditTransactionForm, setEditFormData,
@@ -19,6 +22,12 @@ const Transaction = ({ sTx }) => {
       remark: sTx.remark,
     });
     setShowEditTransactionForm(!showEditTransactionForm);
+    e.preventDefault();
+  };
+
+  const handleDeleteForm = (e) => {
+    setDeleteTxID(sTx.id);
+    setShowDeleteWarning(!showDeleteWarning);
     e.preventDefault();
   };
   return (
@@ -40,10 +49,10 @@ const Transaction = ({ sTx }) => {
       </td>
 
       <td>
-        <FontAwesomeIcon icon={faEdit} style={{ color: 'blue' }} onClick={handleEditForm} />
+        <FontAwesomeIcon icon={faEdit} style={{ color: 'blue', cursor: 'pointer' }} onClick={handleEditForm} />
       </td>
       <td>
-        <FontAwesomeIcon icon={faTrash} style={{ color: 'red' }} />
+        <FontAwesomeIcon icon={faTrash} style={{ color: 'red', cursor: 'pointer' }} onClick={handleDeleteForm} />
       </td>
     </tr>
   );
@@ -51,7 +60,9 @@ const Transaction = ({ sTx }) => {
 
 Transaction.propTypes = {
   sTx: PropTypes.oneOfType([PropTypes.object]).isRequired,
-  // setShowEditTransactionForm: PropTypes.func.isRequired,
+  setShowDeleteWarning: PropTypes.func.isRequired,
+  showDeleteWarning: PropTypes.bool.isRequired,
+  setDeleteTxID: PropTypes.func.isRequired,
 };
 
 export default Transaction;

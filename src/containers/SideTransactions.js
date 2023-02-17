@@ -1,11 +1,14 @@
-import { useContext, useEffect } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import '../styles/SideTransactions.css';
 import Transaction from '../components/Transaction';
 import { fetchSideTxs } from '../utils/apiCalls';
 import DashboardContext from '../contexts/DashboardContext';
+import DeleteWarning from '../layouts/DeleteWarning';
 
 const SideTransactions = () => {
   const { sTxs, setSTxs } = useContext(DashboardContext);
+  const [showDeleteWarning, setShowDeleteWarning] = useState(false);
+  const [deleteTxID, setDeleteTxID] = useState(0);
   useEffect(() => {
     fetchSideTxs(setSTxs);
   }, []);
@@ -45,6 +48,9 @@ const SideTransactions = () => {
                 <Transaction
                   key={sTx.id}
                   sTx={sTx}
+                  setShowDeleteWarning={setShowDeleteWarning}
+                  showDeleteWarning={showDeleteWarning}
+                  setDeleteTxID={setDeleteTxID}
                 />
               ))
               : (
@@ -56,7 +62,7 @@ const SideTransactions = () => {
               )}
           </tbody>
         </table>
-
+        {showDeleteWarning && <DeleteWarning fn={setShowDeleteWarning} deleteTxID={deleteTxID} />}
       </div>
     </div>
   );

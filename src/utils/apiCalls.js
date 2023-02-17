@@ -114,6 +114,19 @@ const updateTx = async (formData, setSTxs) => {
   }
 };
 
+const deleteTxCall = async (setSTxs, deleteTxID) => {
+  try {
+    const result = await axios.delete(`http://127.0.0.1:3000/financial_transactions/${deleteTxID}`, {
+      headers: {
+        Authorization: `${JSON.parse(localStorage.getItem('authToken')).token}`,
+      },
+    }, { withCredentials: true });
+    setSTxs(result.data.fts);
+  } catch (error) {
+    console.log(error);
+  }
+};
+
 export {
-  authCall, fetchDeals, postDeal, fetchSideTxs, postTx, updateTx,
+  authCall, fetchDeals, postDeal, fetchSideTxs, postTx, updateTx, deleteTxCall,
 };
