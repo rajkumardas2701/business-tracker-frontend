@@ -1,5 +1,4 @@
 import axios from 'axios';
-// import { useNavigate } from 'react-router-dom';
 
 const authCall = async (user, setSessionDetails, type) => {
   try {
@@ -46,24 +45,25 @@ const fetchDeals = async (setDeals, setApiMsg, setShowMessage, setMsgColor, setS
     setApiMsg(error.response ? error.response.data.message : error.message);
     setShowMessage(true);
     setMsgColor('msg-err');
-    setTimeout((error) => {
-      const tokenErr = error.response.data;
-      // console.log(tokenErr.token);
-      if (tokenErr && tokenErr.token === '') {
-        console.log('inside token error');
-        localStorage.setItem('authToken', JSON.stringify({
-          logged_in: error.response ? error.response.data.logged_in : false,
-          token: error.response ? error.response.data.token : '',
-        }));
-        setSessionDetails({
-          logged_in: error.response ? error.response.data.logged_in : false,
-          user: error.response ? error.response.data.user : {},
-          message: error.response ? error.response.data.message : error.message,
-        });
-      } else {
-        setShowMessage(false);
-      }
-    }, 5000, error);
+    setTimeout(() => {
+      setShowMessage(false);
+    }, 4000);
+    if (error.response.data && error.response.data.token === '') {
+      setTimeout((error) => {
+        const tokenErr = error.response.data;
+        if (tokenErr && tokenErr.token === '') {
+          localStorage.setItem('authToken', JSON.stringify({
+            logged_in: error.response ? error.response.data.logged_in : false,
+            token: error.response ? error.response.data.token : '',
+          }));
+          setSessionDetails({
+            logged_in: error.response ? error.response.data.logged_in : false,
+            user: error.response ? error.response.data.user : {},
+            message: '',
+          });
+        }
+      }, 5000, error);
+    }
   }
 };
 

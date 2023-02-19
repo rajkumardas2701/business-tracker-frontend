@@ -55,7 +55,7 @@ const SideTransactions = () => {
               ))
               : (
                 <tr>
-                  <td colSpan="4">
+                  <td colSpan="7">
                     There&apos;s no side transactions to show now
                   </td>
                 </tr>
