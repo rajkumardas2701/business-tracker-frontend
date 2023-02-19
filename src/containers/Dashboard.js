@@ -1,10 +1,11 @@
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { fetchDeals } from '../utils/apiCalls';
 import DashboardContext from '../contexts/DashboardContext';
 import Deals from './Deals';
 import '../styles/Dashboard.css';
 import SideTransactions from './SideTransactions';
 import Balance from '../layouts/Balance';
+import SessionContext from '../contexts/SessionContext';
 
 const Dashboard = () => {
   const [deals, setDeals] = useState([]);
@@ -14,8 +15,9 @@ const Dashboard = () => {
   const [sTxs, setSTxs] = useState([]);
   const [showEditTransactionForm, setShowEditTransactionForm] = useState(false);
   const [editFormData, setEditFormData] = useState({});
+  const { setSessionDetails } = useContext(SessionContext);
   useEffect(() => {
-    fetchDeals(setDeals, setApiMsg, setShowMessage, setMsgColor);
+    fetchDeals(setDeals, setApiMsg, setShowMessage, setMsgColor, setSessionDetails);
   }, []);
 
   return (

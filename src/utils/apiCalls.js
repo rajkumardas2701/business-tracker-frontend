@@ -1,4 +1,5 @@
 import axios from 'axios';
+// import { useNavigate } from 'react-router-dom';
 
 const authCall = async (user, setSessionDetails, type) => {
   try {
@@ -26,7 +27,7 @@ const authCall = async (user, setSessionDetails, type) => {
   }
 };
 
-const fetchDeals = async (setDeals, setApiMsg, setShowMessage, setMsgColor) => {
+const fetchDeals = async (setDeals, setApiMsg, setShowMessage, setMsgColor, setSessionDetails) => {
   try {
     const result = await axios.get('http://127.0.0.1:3000/deals', {
       headers: {
@@ -45,9 +46,24 @@ const fetchDeals = async (setDeals, setApiMsg, setShowMessage, setMsgColor) => {
     setApiMsg(error.response ? error.response.data.message : error.message);
     setShowMessage(true);
     setMsgColor('msg-err');
-    setTimeout(() => {
-      setShowMessage(false);
-    }, 5000);
+    setTimeout((error) => {
+      const tokenErr = error.response.data;
+      // console.log(tokenErr.token);
+      if (tokenErr && tokenErr.token === '') {
+        console.log('inside token error');
+        localStorage.setItem('authToken', JSON.stringify({
+          logged_in: error.response ? error.response.data.logged_in : false,
+          token: error.response ? error.response.data.token : '',
+        }));
+        setSessionDetails({
+          logged_in: error.response ? error.response.data.logged_in : false,
+          user: error.response ? error.response.data.user : {},
+          message: error.response ? error.response.data.message : error.message,
+        });
+      } else {
+        setShowMessage(false);
+      }
+    }, 5000, error);
   }
 };
 
@@ -85,6 +101,7 @@ const fetchSideTxs = async (setSTxs) => {
     setSTxs(result.data.fts);
   } catch (error) {
     console.log(error);
+    // console.log(`inside token expire: ${error}`);
   }
 };
 
