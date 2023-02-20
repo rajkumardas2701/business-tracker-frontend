@@ -6,7 +6,7 @@ import DashboardContext from '../contexts/DashboardContext';
 import { updateTx } from '../utils/apiCalls';
 
 const EditTransaction = () => {
-  const { setShowEditTransactionForm, editFormData, setSTxs } = useContext(DashboardContext);
+  const { setShowEditTransactionForm, editFormData, setTxs } = useContext(DashboardContext);
   const [date, setDate] = useState(editFormData.date);
   const [actionBy, setActionBy] = useState(editFormData.action_by);
   const [sentReceive, setSentReceive] = useState(editFormData.send_receive);
@@ -22,7 +22,7 @@ const EditTransaction = () => {
       amount,
       remark,
     };
-    updateTx(formData, setSTxs);
+    updateTx(formData, setTxs);
     setShowEditTransactionForm(false);
     e.preventDefault();
   };

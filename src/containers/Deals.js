@@ -14,16 +14,13 @@ const Deals = () => {
   const [showCreateTransaction, setShowCreateTransaction] = useState(false);
   const [dealTransacts, setDealTransacts] = useState([]);
   const [dealName, setDealName] = useState('');
-  const [initialDealID, setInitialDealID] = useState(0);
-  const [dealID, setDealID] = useState(initialDealID);
-  // useEffect(() => {
-  //   setInitialDealID((deals.length > 0) ? deals[0].id : 0);
-  // }, [deals]);
+  // const [initialDealID, setInitialDealID] = useState(0);
+  const [dealID, setDealID] = useState(0);
   useEffect(() => {
-    setInitialDealID((deals.length > 0) ? deals[0].id : 0);
+    // setInitialDealID((deals.length > 0) ? deals[0].id : 0);
     setDealTransacts(filterDealTransactions(txs, dealID));
     setDealName(fetchDealName(dealID, deals));
-  }, [txs, dealID, deals, initialDealID]);
+  }, [txs, dealID, deals]);
   const handleCreateDeal = (e) => {
     setShowCreateDeal(!showCreateDeal);
     e.preventDefault();
@@ -34,10 +31,10 @@ const Deals = () => {
   };
   return (
     <div className="deals-container">
-      {/* {console.log(initialDealID)} */}
-      <h3 style={{ marginTop: '10px', textAlign: 'center' }}>Deals related Transactions</h3>
+      <h3 style={{ marginRight: '20%', textAlign: 'end' }}>Deals related Transactions</h3>
       <div className="deal-transact">
         <div className="deals-list">
+          <h4 style={{ textAlign: 'center' }}>Deals</h4>
           {
             (deals && deals.length)
               ? deals.map((deal) => (
@@ -50,7 +47,6 @@ const Deals = () => {
               : <p>Fetching Deals</p>
           }
         </div>
-        {/* {console.log(dealTransacts)} */}
         <DealTransactions dealTransacts={dealTransacts} dealName={dealName} />
       </div>
 

@@ -12,9 +12,12 @@ const getBalance = (sTxs, setBalance) => {
 };
 
 const filterDealTransactions = (txs, id) => txs.filter((tx) => tx.deal_id === id);
+const filterSideTxs = (txs) => txs.filter((tx) => tx.deal_id === null);
 const fetchDealName = (dealID, deals) => {
   const deal = deals.filter((d) => d.id === dealID);
   return deal.length === 0 ? 'No Deal selected' : (deal[0] && deal[0].vehicle_date);
 };
 
-export { getBalance, filterDealTransactions, fetchDealName };
+export {
+  getBalance, filterDealTransactions, fetchDealName, filterSideTxs,
+};

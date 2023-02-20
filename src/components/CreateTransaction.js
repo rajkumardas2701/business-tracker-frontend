@@ -11,7 +11,7 @@ const CreateTransaction = ({ setShowCreateTransaction }) => {
   const [sentReceive, setSentReceive] = useState('Sent');
   const [amount, setAmount] = useState(0);
   const [remark, setRemark] = useState('');
-  const { setSTxs } = useContext(DashboardContext);
+  const { setTxs } = useContext(DashboardContext);
 
   const handleFormCancel = (e) => {
     setDate('');
@@ -31,7 +31,7 @@ const CreateTransaction = ({ setShowCreateTransaction }) => {
       amount,
       remark,
     };
-    postTx(setSTxs, formData);
+    postTx(setTxs, formData);
     setShowCreateTransaction(false);
     e.preventDefault();
   };

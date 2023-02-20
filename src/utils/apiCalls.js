@@ -91,20 +91,6 @@ const postDeal = async (setDeals, setApiMsg, setShowMessage, setMsgColor, formDa
   }
 };
 
-const fetchSideTxs = async (setSTxs) => {
-  try {
-    const result = await axios.get('http://127.0.0.1:3000/side_transactions', {
-      headers: {
-        Authorization: `${JSON.parse(localStorage.getItem('authToken')).token}`,
-      },
-    }, { withCredentials: true });
-    setSTxs(result.data.fts);
-  } catch (error) {
-    console.log(error);
-    // console.log(`inside token expire: ${error}`);
-  }
-};
-
 const fetchTxs = async (setTxs) => {
   try {
     const result = await axios.get('http://127.0.0.1:3000/financial_transactions', {
@@ -118,45 +104,45 @@ const fetchTxs = async (setTxs) => {
   }
 };
 
-const postTx = async (setSTxs, formData) => {
+const postTx = async (setTxs, formData) => {
   try {
     const result = await axios.post('http://127.0.0.1:3000/financial_transactions', { formData }, {
       headers: {
         Authorization: `${JSON.parse(localStorage.getItem('authToken')).token}`,
       },
     }, { withCredentials: true });
-    setSTxs(result.data.fts);
+    setTxs(result.data.fts);
   } catch (error) {
     console.log(error);
   }
 };
 
-const updateTx = async (formData, setSTxs) => {
+const updateTx = async (formData, setTxs) => {
   try {
     const result = await axios.patch(`http://127.0.0.1:3000/financial_transactions/${formData.id}`, { formData }, {
       headers: {
         Authorization: `${JSON.parse(localStorage.getItem('authToken')).token}`,
       },
     }, { withCredentials: true });
-    setSTxs(result.data.fts);
+    setTxs(result.data.fts);
   } catch (error) {
     console.log(error);
   }
 };
 
-const deleteTxCall = async (setSTxs, deleteTxID) => {
+const deleteTxCall = async (setTxs, deleteTxID) => {
   try {
     const result = await axios.delete(`http://127.0.0.1:3000/financial_transactions/${deleteTxID}`, {
       headers: {
         Authorization: `${JSON.parse(localStorage.getItem('authToken')).token}`,
       },
     }, { withCredentials: true });
-    setSTxs(result.data.fts);
+    setTxs(result.data.fts);
   } catch (error) {
     console.log(error);
   }
 };
 
 export {
-  authCall, fetchDeals, postDeal, fetchSideTxs, fetchTxs, postTx, updateTx, deleteTxCall,
+  authCall, fetchDeals, postDeal, fetchTxs, postTx, updateTx, deleteTxCall,
 };

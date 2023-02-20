@@ -1,17 +1,19 @@
 import { useContext, useEffect, useState } from 'react';
 import '../styles/SideTransactions.css';
 import Transaction from '../components/Transaction';
-import { fetchSideTxs } from '../utils/apiCalls';
+// import { fetchSideTxs } from '../utils/apiCalls';
 import DashboardContext from '../contexts/DashboardContext';
 import DeleteWarning from '../layouts/DeleteWarning';
+import { filterSideTxs } from '../helper_functions/helperMethods';
 
 const SideTransactions = () => {
-  const { sTxs, setSTxs } = useContext(DashboardContext);
+  const { txs } = useContext(DashboardContext);
+  const [sTxs, setSTxs] = useState([]);
   const [showDeleteWarning, setShowDeleteWarning] = useState(false);
   const [deleteTxID, setDeleteTxID] = useState(0);
   useEffect(() => {
-    fetchSideTxs(setSTxs);
-  }, []);
+    setSTxs(filterSideTxs(txs));
+  }, [txs]);
   return (
     <div className="side-transactions-container">
       <div className="side-transactions-list">

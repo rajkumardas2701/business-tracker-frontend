@@ -4,13 +4,13 @@ import DashboardContext from '../contexts/DashboardContext';
 import { deleteTxCall } from '../utils/apiCalls';
 
 const DeleteWarning = ({ fn, deleteTxID }) => {
-  const { setSTxs } = useContext(DashboardContext);
+  const { setTxs } = useContext(DashboardContext);
   const handleFormCancel = (e) => {
     fn(false);
     e.preventDefault();
   };
   const handleSubmit = (e) => {
-    deleteTxCall(setSTxs, deleteTxID);
+    deleteTxCall(setTxs, deleteTxID);
     fn(false);
     e.preventDefault();
   };

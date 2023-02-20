@@ -20,7 +20,7 @@ const Dashboard = () => {
   useEffect(() => {
     fetchDeals(setDeals, setApiMsg, setShowMessage, setMsgColor, setSessionDetails);
     fetchTxs(setTxs);
-  }, []);
+  }, [setSessionDetails]);
 
   return (
     <div className="dashboard-container">
