@@ -91,7 +91,7 @@ const postDeal = async (setDeals, setApiMsg, setShowMessage, setMsgColor, formDa
   }
 };
 
-const fetchTxs = async (setTxs) => {
+const fetchTxs = async (setTxs, setApiMsg, setShowMessage, setMsgColor) => {
   try {
     const result = await axios.get('http://127.0.0.1:3000/financial_transactions', {
       headers: {
@@ -99,12 +99,23 @@ const fetchTxs = async (setTxs) => {
       },
     }, { withCredentials: true });
     setTxs(result.data.fts);
+    setApiMsg(result.data.message);
+    setShowMessage(true);
+    setMsgColor('msg-ok');
+    setTimeout(() => {
+      setShowMessage(false);
+    }, 5000);
   } catch (error) {
-    console.log(error);
+    setApiMsg(error.response ? error.response.data.message : error.message);
+    setShowMessage(true);
+    setMsgColor('msg-err');
+    setTimeout(() => {
+      setShowMessage(false);
+    }, 5000);
   }
 };
 
-const postTx = async (setTxs, formData) => {
+const postTx = async (setTxs, formData, setApiMsg, setShowMessage, setMsgColor) => {
   try {
     const result = await axios.post('http://127.0.0.1:3000/financial_transactions', { formData }, {
       headers: {
@@ -112,12 +123,23 @@ const postTx = async (setTxs, formData) => {
       },
     }, { withCredentials: true });
     setTxs(result.data.fts);
+    setApiMsg(result.data.message);
+    setShowMessage(true);
+    setMsgColor('msg-ok');
+    setTimeout(() => {
+      setShowMessage(false);
+    }, 5000);
   } catch (error) {
-    console.log(error);
+    setApiMsg(error.response ? error.response.data.message : error.message);
+    setShowMessage(true);
+    setMsgColor('msg-err');
+    setTimeout(() => {
+      setShowMessage(false);
+    }, 5000);
   }
 };
 
-const updateTx = async (formData, setTxs) => {
+const updateTx = async (formData, setTxs, setApiMsg, setShowMessage, setMsgColor) => {
   try {
     const result = await axios.patch(`http://127.0.0.1:3000/financial_transactions/${formData.id}`, { formData }, {
       headers: {
@@ -125,12 +147,23 @@ const updateTx = async (formData, setTxs) => {
       },
     }, { withCredentials: true });
     setTxs(result.data.fts);
+    setApiMsg(result.data.message);
+    setShowMessage(true);
+    setMsgColor('msg-ok');
+    setTimeout(() => {
+      setShowMessage(false);
+    }, 5000);
   } catch (error) {
-    console.log(error);
+    setApiMsg(error.response ? error.response.data.message : error.message);
+    setShowMessage(true);
+    setMsgColor('msg-err');
+    setTimeout(() => {
+      setShowMessage(false);
+    }, 5000);
   }
 };
 
-const deleteTxCall = async (setTxs, deleteTxID) => {
+const deleteTxCall = async (setTxs, deleteTxID, setApiMsg, setShowMessage, setMsgColor) => {
   try {
     const result = await axios.delete(`http://127.0.0.1:3000/financial_transactions/${deleteTxID}`, {
       headers: {
@@ -138,8 +171,19 @@ const deleteTxCall = async (setTxs, deleteTxID) => {
       },
     }, { withCredentials: true });
     setTxs(result.data.fts);
+    setApiMsg(result.data.message);
+    setShowMessage(true);
+    setMsgColor('msg-ok');
+    setTimeout(() => {
+      setShowMessage(false);
+    }, 5000);
   } catch (error) {
-    console.log(error);
+    setApiMsg(error.response ? error.response.data.message : error.message);
+    setShowMessage(true);
+    setMsgColor('msg-err');
+    setTimeout(() => {
+      setShowMessage(false);
+    }, 5000);
   }
 };
 

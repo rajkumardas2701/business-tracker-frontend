@@ -1,12 +1,13 @@
 import { useContext, useState } from 'react';
-// import PropTypes from 'prop-types';
-import '../styles/AuthForm.css';
-import '../styles/CreateTransaction.css';
 import DashboardContext from '../contexts/DashboardContext';
 import { updateTx } from '../utils/apiCalls';
+import '../styles/AuthForm.css';
+import '../styles/CreateTransaction.css';
 
 const EditTransaction = () => {
-  const { setShowEditTransactionForm, editFormData, setTxs } = useContext(DashboardContext);
+  const {
+    setShowEditTransactionForm, editFormData, setTxs, setApiMsg, setShowMessage, setMsgColor,
+  } = useContext(DashboardContext);
   const [date, setDate] = useState(editFormData.date);
   const [actionBy, setActionBy] = useState(editFormData.action_by);
   const [sentReceive, setSentReceive] = useState(editFormData.send_receive);
@@ -22,7 +23,7 @@ const EditTransaction = () => {
       amount,
       remark,
     };
-    updateTx(formData, setTxs);
+    updateTx(formData, setTxs, setApiMsg, setShowMessage, setMsgColor);
     setShowEditTransactionForm(false);
     e.preventDefault();
   };

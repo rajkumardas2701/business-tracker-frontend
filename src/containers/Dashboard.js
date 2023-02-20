@@ -19,7 +19,7 @@ const Dashboard = () => {
   const { setSessionDetails } = useContext(SessionContext);
   useEffect(() => {
     fetchDeals(setDeals, setApiMsg, setShowMessage, setMsgColor, setSessionDetails);
-    fetchTxs(setTxs);
+    fetchTxs(setTxs, setApiMsg, setShowMessage, setMsgColor);
   }, [setSessionDetails]);
 
   return (
