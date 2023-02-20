@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from 'react';
-import { fetchDeals } from '../utils/apiCalls';
+import { fetchDeals, fetchTxs } from '../utils/apiCalls';
 import DashboardContext from '../contexts/DashboardContext';
 import Deals from './Deals';
 import '../styles/Dashboard.css';
@@ -13,11 +13,13 @@ const Dashboard = () => {
   const [showMessage, setShowMessage] = useState(false);
   const [msgColor, setMsgColor] = useState('');
   const [sTxs, setSTxs] = useState([]);
+  const [txs, setTxs] = useState([]);
   const [showEditTransactionForm, setShowEditTransactionForm] = useState(false);
   const [editFormData, setEditFormData] = useState({});
   const { setSessionDetails } = useContext(SessionContext);
   useEffect(() => {
     fetchDeals(setDeals, setApiMsg, setShowMessage, setMsgColor, setSessionDetails);
+    fetchTxs(setTxs);
   }, []);
 
   return (
@@ -38,6 +40,8 @@ const Dashboard = () => {
         setShowEditTransactionForm,
         editFormData,
         setEditFormData,
+        txs,
+        setTxs,
       }}
       >
         <Balance />

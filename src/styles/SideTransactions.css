@@ -2,6 +2,10 @@
   width: 50%;
 }
 
+.deals-transactions-container {
+  width: 60%;
+}
+
 .side-transactions-list {
   display: flex;
   flex-direction: column;

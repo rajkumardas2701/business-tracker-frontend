@@ -105,6 +105,19 @@ const fetchSideTxs = async (setSTxs) => {
   }
 };
 
+const fetchTxs = async (setTxs) => {
+  try {
+    const result = await axios.get('http://127.0.0.1:3000/financial_transactions', {
+      headers: {
+        Authorization: `${JSON.parse(localStorage.getItem('authToken')).token}`,
+      },
+    }, { withCredentials: true });
+    setTxs(result.data.fts);
+  } catch (error) {
+    console.log(error);
+  }
+};
+
 const postTx = async (setSTxs, formData) => {
   try {
     const result = await axios.post('http://127.0.0.1:3000/financial_transactions', { formData }, {
@@ -145,5 +158,5 @@ const deleteTxCall = async (setSTxs, deleteTxID) => {
 };
 
 export {
-  authCall, fetchDeals, postDeal, fetchSideTxs, postTx, updateTx, deleteTxCall,
+  authCall, fetchDeals, postDeal, fetchSideTxs, fetchTxs, postTx, updateTx, deleteTxCall,
 };

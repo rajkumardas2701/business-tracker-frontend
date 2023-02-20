@@ -26,18 +26,31 @@ const CreateDeal = ({ setShowCreateDeal }) => {
     const formData = {
       vehicle,
       date,
-      fName,
-      fQuantity,
-      fDiscount,
-      fRate,
-      dName,
-      dQuantity,
-      dDiscount,
-      dRate,
-      fActualAmount,
-      dActualAmount,
+      f_name: fName,
+      f_quantiy: fQuantity,
+      f_choot: fDiscount,
+      f_rate: fRate,
+      d_name: dName,
+      d_quantity: dQuantity,
+      d_choot: dDiscount,
+      d_rate: dRate,
+      f_actual_amount: fActualAmount,
+      d_actual_amount: dActualAmount,
     };
     postDeal(setDeals, setApiMsg, setShowMessage, setMsgColor, formData);
+    setVehicle('');
+    setDate('');
+    setFName('');
+    setFQuantity(0);
+    setFDiscount(0.0);
+    setFRate(0.0);
+    setDName('');
+    setDQuantity(0);
+    setDDiscount(0.0);
+    setDRate(0.0);
+    setFActualAmount(0.0);
+    setDActualAmount(0.0);
+    setShowCreateDeal(false);
     e.preventDefault();
   };
 
