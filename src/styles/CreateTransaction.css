@@ -1,3 +1,9 @@
 #drop-down {
   width: 100%;
 }
+
+.form-input-choices {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}

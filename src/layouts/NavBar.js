@@ -25,7 +25,7 @@ const NavBar = () => {
         </p>
       </div>
       {
-      sessionDetails.logged_in && <button type="submit" onClick={handleSignOut} className="signout-btn">SignOut</button>
+      sessionDetails.logged_in && <button type="submit" onClick={handleSignOut} className="signout-btn">Sign Out</button>
     }
     </div>
   );
