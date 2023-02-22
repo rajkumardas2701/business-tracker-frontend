@@ -1,18 +1,23 @@
 import PropTypes from 'prop-types';
 import { useContext } from 'react';
 import DashboardContext from '../contexts/DashboardContext';
-import { deleteTxCall } from '../utils/apiCalls';
+import { deleteDealCall, deleteTxCall } from '../utils/apiCalls';
 
-const DeleteWarning = ({ fn, deleteTxID }) => {
+const DeleteWarning = ({ fn, deleteTxID, dealID }) => {
   const {
-    setTxs, setApiMsg, setShowMessage, setMsgColor,
+    setTxs, setApiMsg, setShowMessage, setMsgColor, setDeals,
   } = useContext(DashboardContext);
   const handleFormCancel = (e) => {
     fn(false);
     e.preventDefault();
   };
   const handleSubmit = (e) => {
-    deleteTxCall(setTxs, deleteTxID, setApiMsg, setShowMessage, setMsgColor);
+    if (deleteTxID) {
+      deleteTxCall(setTxs, deleteTxID, setApiMsg, setShowMessage, setMsgColor);
+    }
+    if (dealID) {
+      deleteDealCall(setDeals, dealID, setApiMsg, setShowMessage, setMsgColor);
+    }
     fn(false);
     e.preventDefault();
   };
@@ -31,8 +36,14 @@ const DeleteWarning = ({ fn, deleteTxID }) => {
 
 DeleteWarning.propTypes = {
   fn: PropTypes.func.isRequired,
-  deleteTxID: PropTypes.number.isRequired,
+  deleteTxID: PropTypes.number,
+  dealID: PropTypes.number,
   // setShowEditTransactionForm: PropTypes.func.isRequired,
+};
+
+DeleteWarning.defaultProps = {
+  deleteTxID: null,
+  dealID: null,
 };
 
 export default DeleteWarning;

@@ -6,6 +6,7 @@ import DealTransactions from './DealTransactions';
 import CreateTransaction from '../components/CreateTransaction';
 import EditTransaction from '../components/EditTransaction';
 import { filterDealTransactions, fetchDealName } from '../helper_functions/helperMethods';
+import DeleteWarning from '../layouts/DeleteWarning';
 import '../styles/Deals.css';
 
 const Deals = () => {
@@ -14,6 +15,7 @@ const Deals = () => {
   const [showCreateTransaction, setShowCreateTransaction] = useState(false);
   const [dealTransacts, setDealTransacts] = useState([]);
   const [dealName, setDealName] = useState('');
+  const [showDeleteWarning, setShowDeleteWarning] = useState(false);
   // const [initialDealID, setInitialDealID] = useState(0);
   const [dealID, setDealID] = useState(0);
   useEffect(() => {
@@ -42,6 +44,8 @@ const Deals = () => {
                   key={deal.id}
                   deal={deal}
                   setDealID={setDealID}
+                  showDeleteWarning={showDeleteWarning}
+                  setShowDeleteWarning={setShowDeleteWarning}
                 />
               ))
               : <p>Fetching Deals</p>
@@ -59,6 +63,7 @@ const Deals = () => {
       />
       )}
       { showEditTransactionForm && <EditTransaction /> }
+      {showDeleteWarning && <DeleteWarning fn={setShowDeleteWarning} dealID={dealID} />}
     </div>
   );
 };

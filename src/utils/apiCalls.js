@@ -91,6 +91,54 @@ const postDeal = async (setDeals, setApiMsg, setShowMessage, setMsgColor, formDa
   }
 };
 
+const updateDeal = async (formData, setDeals, setApiMsg, setShowMessage, setMsgColor) => {
+  try {
+    const result = await axios.patch(`http://127.0.0.1:3000/deals/${formData.id}`, { formData }, {
+      headers: {
+        Authorization: `${JSON.parse(localStorage.getItem('authToken')).token}`,
+      },
+    }, { withCredentials: true });
+    setDeals(result.data.deals);
+    setApiMsg(result.data.message);
+    setShowMessage(true);
+    setMsgColor('msg-ok');
+    setTimeout(() => {
+      setShowMessage(false);
+    }, 5000);
+  } catch (error) {
+    setApiMsg(error.response ? error.response.data.message : error.message);
+    setShowMessage(true);
+    setMsgColor('msg-err');
+    setTimeout(() => {
+      setShowMessage(false);
+    }, 5000);
+  }
+};
+
+const deleteDealCall = async (setDeals, deleteDealID, setApiMsg, setShowMessage, setMsgColor) => {
+  try {
+    const result = await axios.delete(`http://127.0.0.1:3000/deals/${deleteDealID}`, {
+      headers: {
+        Authorization: `${JSON.parse(localStorage.getItem('authToken')).token}`,
+      },
+    }, { withCredentials: true });
+    setDeals(result.data.deals);
+    setApiMsg(result.data.message);
+    setShowMessage(true);
+    setMsgColor('msg-ok');
+    setTimeout(() => {
+      setShowMessage(false);
+    }, 5000);
+  } catch (error) {
+    setApiMsg(error.response ? error.response.data.message : error.message);
+    setShowMessage(true);
+    setMsgColor('msg-err');
+    setTimeout(() => {
+      setShowMessage(false);
+    }, 5000);
+  }
+};
+
 const fetchTxs = async (setTxs, setApiMsg, setShowMessage, setMsgColor) => {
   try {
     const result = await axios.get('http://127.0.0.1:3000/financial_transactions', {
@@ -188,5 +236,6 @@ const deleteTxCall = async (setTxs, deleteTxID, setApiMsg, setShowMessage, setMs
 };
 
 export {
-  authCall, fetchDeals, postDeal, fetchTxs, postTx, updateTx, deleteTxCall,
+  authCall, fetchDeals, postDeal, updateDeal,
+  deleteDealCall, fetchTxs, postTx, updateTx, deleteTxCall,
 };
