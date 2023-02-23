@@ -18,8 +18,8 @@ const EditDeal = ({ deal, setShowEditDeal }) => {
   const [dQuantity, setDQuantity] = useState(deal.d_quantity);
   const [dDiscount, setDDiscount] = useState(deal.d_choot);
   const [dRate, setDRate] = useState(deal.d_rate);
-  const [fActualAmount, setFActualAmount] = useState(deal.f_actual_amount);
-  const [dActualAmount, setDActualAmount] = useState(deal.d_actual_amount);
+  const [vehicleFare, setVehicleFare] = useState(deal.vehicle_fare);
+  const [labourCharge, setLabourCharge] = useState(deal.labour_charge);
   const handleSubmit = (e) => {
     const formData = {
       id: deal.id,
@@ -32,8 +32,8 @@ const EditDeal = ({ deal, setShowEditDeal }) => {
       d_quantity: dQuantity,
       d_choot: dDiscount,
       d_rate: dRate,
-      f_actual_amount: fActualAmount,
-      d_actual_amount: dActualAmount,
+      vehicle_fare: vehicleFare,
+      labour_charge: labourCharge,
     };
     updateDeal(formData, setDeals, setApiMsg, setShowMessage, setMsgColor);
     setShowEditDeal(false);
@@ -51,7 +51,7 @@ const EditDeal = ({ deal, setShowEditDeal }) => {
       <form onSubmit={handleSubmit}>
         <div className="form-elements">
           <p>
-            vehicle & Date:
+            Vehicle & Date:
           </p>
           <input
             placeholder="Vehicle Date"
@@ -168,27 +168,27 @@ const EditDeal = ({ deal, setShowEditDeal }) => {
 
         <div className="form-elements">
           <p>
-            Farmer Actual Amount:
+            Gaadi Bhada:
           </p>
           <input
             placeholder="Enter amount"
             type="number"
-            name="fActualAmount"
-            value={fActualAmount}
-            onChange={(e) => setFActualAmount(e.target.value)}
+            name="vehicleFare"
+            value={vehicleFare}
+            onChange={(e) => setVehicleFare(e.target.value)}
           />
         </div>
 
         <div className="form-elements">
           <p>
-            Dealer Actual Amount:
+            Hamali:
           </p>
           <input
             placeholder="Enter amount"
             type="number"
-            name="dActualAmount"
-            value={dActualAmount}
-            onChange={(e) => setDActualAmount(e.target.value)}
+            name="labourCharge"
+            value={labourCharge}
+            onChange={(e) => setLabourCharge(e.target.value)}
           />
         </div>
         <div className="btn-container">

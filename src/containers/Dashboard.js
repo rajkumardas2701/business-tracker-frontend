@@ -6,6 +6,7 @@ import '../styles/Dashboard.css';
 import SideTransactions from './SideTransactions';
 import Balance from '../layouts/Balance';
 import SessionContext from '../contexts/SessionContext';
+// import CollapsedST from '../layouts/CollapsedST';
 
 const Dashboard = () => {
   const [deals, setDeals] = useState([]);
@@ -17,6 +18,7 @@ const Dashboard = () => {
   const [showEditTransactionForm, setShowEditTransactionForm] = useState(false);
   const [editFormData, setEditFormData] = useState({});
   const { setSessionDetails } = useContext(SessionContext);
+  // const [showSideTxs, setShowSideTxs] = useState(true);
   useEffect(() => {
     fetchDeals(setDeals, setApiMsg, setShowMessage, setMsgColor, setSessionDetails);
     fetchTxs(setTxs, setApiMsg, setShowMessage, setMsgColor);

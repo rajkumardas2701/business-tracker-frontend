@@ -10,7 +10,7 @@ const DealTransactions = ({ dealTransacts, dealName }) => {
     <div className="deals-transactions-container">
       <div className="side-transactions-list">
         <h4 style={{ marginTop: '10px', color: 'blue' }}>
-          {(dealName === 'No Deal selected') ? 'Please select one of the deal to see Transactions'
+          {(dealName === 'No Deal selected') ? 'Select one of the deal to see Transactions'
             : `Vehicle: ${dealName.slice(0, -6).toUpperCase()} & Date: ${dealName.slice(-8, -4)}-${dealName.slice(-4, -2)}-${dealName.slice(-2)}`}
         </h4>
         <table>

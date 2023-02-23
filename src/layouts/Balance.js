@@ -15,7 +15,9 @@ const Balance = () => {
         Overall Balance:
       </p>
       <p>
+        INR&nbsp;
         {balance}
+        /-
       </p>
     </div>
   );

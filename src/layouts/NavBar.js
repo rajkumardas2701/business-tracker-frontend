@@ -16,6 +16,7 @@ const NavBar = () => {
 
   return (
     <div className="navbar-body">
+      <p className="nav-logo">BUSINESS TRACKER</p>
       <div className="user-greet">
         <p>
           Hi!&nbsp;

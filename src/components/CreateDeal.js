@@ -16,8 +16,8 @@ const CreateDeal = ({ setShowCreateDeal }) => {
   const [dQuantity, setDQuantity] = useState(0);
   const [dDiscount, setDDiscount] = useState(0.0);
   const [dRate, setDRate] = useState(0.0);
-  const [fActualAmount, setFActualAmount] = useState(0.0);
-  const [dActualAmount, setDActualAmount] = useState(0.0);
+  const [vehicleFare, setVehicleFare] = useState(0.0);
+  const [labourCharge, setLabourCharge] = useState(0.0);
   const {
     setDeals, setApiMsg, setShowMessage, setMsgColor,
   } = useContext(DashboardContext);
@@ -34,8 +34,8 @@ const CreateDeal = ({ setShowCreateDeal }) => {
       d_quantity: dQuantity,
       d_choot: dDiscount,
       d_rate: dRate,
-      f_actual_amount: fActualAmount,
-      d_actual_amount: dActualAmount,
+      vehicle_fare: vehicleFare,
+      labour_charge: labourCharge,
     };
     postDeal(setDeals, setApiMsg, setShowMessage, setMsgColor, formData);
     setVehicle('');
@@ -48,8 +48,8 @@ const CreateDeal = ({ setShowCreateDeal }) => {
     setDQuantity(0);
     setDDiscount(0.0);
     setDRate(0.0);
-    setFActualAmount(0.0);
-    setDActualAmount(0.0);
+    setVehicleFare(0.0);
+    setLabourCharge(0.0);
     setShowCreateDeal(false);
     e.preventDefault();
   };
@@ -65,8 +65,8 @@ const CreateDeal = ({ setShowCreateDeal }) => {
     setDQuantity(0);
     setDDiscount(0.0);
     setDRate(0.0);
-    setFActualAmount(0.0);
-    setDActualAmount(0.0);
+    setVehicleFare(0.0);
+    setLabourCharge(0.0);
     setShowCreateDeal(false);
     e.preventDefault();
   };
@@ -207,27 +207,27 @@ const CreateDeal = ({ setShowCreateDeal }) => {
 
         <div className="form-elements">
           <p>
-            Farmer Actual Amount:
+            Gaadi Bhada:
           </p>
           <input
             placeholder="Enter amount"
             type="number"
-            name="fActualAmount"
-            value={fActualAmount}
-            onChange={(e) => setFActualAmount(e.target.value)}
+            name="vehicleFare"
+            value={vehicleFare}
+            onChange={(e) => setVehicleFare(e.target.value)}
           />
         </div>
 
         <div className="form-elements">
           <p>
-            Dealer Actual Amount:
+            Hamali:
           </p>
           <input
             placeholder="Enter amount"
             type="number"
-            name="dActualAmount"
-            value={dActualAmount}
-            onChange={(e) => setDActualAmount(e.target.value)}
+            name="labourCharge"
+            value={labourCharge}
+            onChange={(e) => setLabourCharge(e.target.value)}
           />
         </div>
         <div className="btn-container">

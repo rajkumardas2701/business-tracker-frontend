@@ -1,4 +1,5 @@
 import { useContext, useEffect, useState } from 'react';
+import { TailSpin } from 'react-loader-spinner';
 import DashboardContext from '../contexts/DashboardContext';
 import Deal from '../components/Deal';
 import CreateDeal from '../components/CreateDeal';
@@ -48,7 +49,12 @@ const Deals = () => {
                   setShowDeleteWarning={setShowDeleteWarning}
                 />
               ))
-              : <p>Fetching Deals</p>
+              : (
+                <div className="deal-loader">
+                  <TailSpin />
+                  {/* <p style={{ textAlign: 'left' }}>No deal to show yet</p> */}
+                </div>
+              )
           }
         </div>
         <DealTransactions dealTransacts={dealTransacts} dealName={dealName} />

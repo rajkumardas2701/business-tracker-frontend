@@ -28,3 +28,10 @@
   min-width: 10%;
   margin-right: 10px;
 }
+
+.nav-logo {
+  margin-left: 10px;
+  font-family: "Proxima Nova", Arial, Helvetica, sans-serif;
+  color: aliceblue;
+  font-weight: bolder;
+}

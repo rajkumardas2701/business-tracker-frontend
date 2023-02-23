@@ -11,6 +11,14 @@ const getBalance = (sTxs, setBalance) => {
   setBalance(val);
 };
 
+const calulateBalance = (deal) => {
+  const farExp = (parseFloat(deal.f_quantiy) - parseFloat(deal.f_choot)) * parseFloat(deal.f_rate);
+  const dealExp = (parseFloat(deal.d_quantity) - parseFloat(deal.d_choot))
+   * parseFloat(deal.d_rate);
+  const final = (dealExp - farExp) - parseFloat(deal.labour_charge) - parseFloat(deal.vehicle_fare);
+  return final;
+};
+
 const filterDealTransactions = (txs, id) => txs.filter((tx) => tx.deal_id === id);
 const filterSideTxs = (txs) => txs.filter((tx) => tx.deal_id === null);
 const fetchDealName = (dealID, deals) => {
@@ -19,5 +27,5 @@ const fetchDealName = (dealID, deals) => {
 };
 
 export {
-  getBalance, filterDealTransactions, fetchDealName, filterSideTxs,
+  getBalance, filterDealTransactions, fetchDealName, filterSideTxs, calulateBalance,
 };
