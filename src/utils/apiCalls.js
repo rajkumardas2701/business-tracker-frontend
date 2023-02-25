@@ -1,8 +1,9 @@
 import axios from 'axios';
+import apiURL from '../constants/constant';
 
 const authCall = async (user, setSessionDetails, type) => {
   try {
-    const result = await axios.post(`https://businesstrackerbackendapi.azurewebsites.net/auth/${type}`, { user }, { withCredentials: true });
+    const result = await axios.post(`${apiURL}/auth/${type}`, { user }, { withCredentials: true });
     localStorage.setItem('authToken', JSON.stringify({
       logged_in: result.data.logged_in,
       token: result.data.token,
@@ -28,7 +29,7 @@ const authCall = async (user, setSessionDetails, type) => {
 
 const fetchDeals = async (setDeals, setApiMsg, setShowMessage, setMsgColor, setSessionDetails) => {
   try {
-    const result = await axios.get('https://businesstrackerbackendapi.azurewebsites.net/deals', {
+    const result = await axios.get(`${apiURL}/deals`, {
       headers: {
         Authorization: `${JSON.parse(localStorage.getItem('authToken')).token}`,
       },
@@ -69,7 +70,7 @@ const fetchDeals = async (setDeals, setApiMsg, setShowMessage, setMsgColor, setS
 
 const postDeal = async (setDeals, setApiMsg, setShowMessage, setMsgColor, formData) => {
   try {
-    const result = await axios.post('https://businesstrackerbackendapi.azurewebsites.net/deals', { formData }, {
+    const result = await axios.post(`${apiURL}/deals`, { formData }, {
       headers: {
         Authorization: `${JSON.parse(localStorage.getItem('authToken')).token}`,
       },
@@ -93,7 +94,7 @@ const postDeal = async (setDeals, setApiMsg, setShowMessage, setMsgColor, formDa
 
 const updateDeal = async (formData, setDeals, setApiMsg, setShowMessage, setMsgColor) => {
   try {
-    const result = await axios.patch(`https://businesstrackerbackendapi.azurewebsites.net/deals/${formData.id}`, { formData }, {
+    const result = await axios.patch(`${apiURL}/deals/${formData.id}`, { formData }, {
       headers: {
         Authorization: `${JSON.parse(localStorage.getItem('authToken')).token}`,
       },
@@ -117,7 +118,7 @@ const updateDeal = async (formData, setDeals, setApiMsg, setShowMessage, setMsgC
 
 const deleteDealCall = async (setDeals, deleteDealID, setApiMsg, setShowMessage, setMsgColor) => {
   try {
-    const result = await axios.delete(`https://businesstrackerbackendapi.azurewebsites.net/deals/${deleteDealID}`, {
+    const result = await axios.delete(`${apiURL}/deals/${deleteDealID}`, {
       headers: {
         Authorization: `${JSON.parse(localStorage.getItem('authToken')).token}`,
       },
@@ -141,7 +142,7 @@ const deleteDealCall = async (setDeals, deleteDealID, setApiMsg, setShowMessage,
 
 const fetchTxs = async (setTxs, setApiMsg, setShowMessage, setMsgColor) => {
   try {
-    const result = await axios.get('https://businesstrackerbackendapi.azurewebsites.net/financial_transactions', {
+    const result = await axios.get(`${apiURL}/financial_transactions`, {
       headers: {
         Authorization: `${JSON.parse(localStorage.getItem('authToken')).token}`,
       },
@@ -165,7 +166,7 @@ const fetchTxs = async (setTxs, setApiMsg, setShowMessage, setMsgColor) => {
 
 const postTx = async (setTxs, formData, setApiMsg, setShowMessage, setMsgColor) => {
   try {
-    const result = await axios.post('https://businesstrackerbackendapi.azurewebsites.net/financial_transactions', { formData }, {
+    const result = await axios.post(`${apiURL}/financial_transactions`, { formData }, {
       headers: {
         Authorization: `${JSON.parse(localStorage.getItem('authToken')).token}`,
       },
@@ -189,7 +190,7 @@ const postTx = async (setTxs, formData, setApiMsg, setShowMessage, setMsgColor) 
 
 const updateTx = async (formData, setTxs, setApiMsg, setShowMessage, setMsgColor) => {
   try {
-    const result = await axios.patch(`https://businesstrackerbackendapi.azurewebsites.net/financial_transactions/${formData.id}`, { formData }, {
+    const result = await axios.patch(`${apiURL}/financial_transactions/${formData.id}`, { formData }, {
       headers: {
         Authorization: `${JSON.parse(localStorage.getItem('authToken')).token}`,
       },
@@ -213,7 +214,7 @@ const updateTx = async (formData, setTxs, setApiMsg, setShowMessage, setMsgColor
 
 const deleteTxCall = async (setTxs, deleteTxID, setApiMsg, setShowMessage, setMsgColor) => {
   try {
-    const result = await axios.delete(`https://businesstrackerbackendapi.azurewebsites.net/financial_transactions/${deleteTxID}`, {
+    const result = await axios.delete(`${apiURL}/financial_transactions/${deleteTxID}`, {
       headers: {
         Authorization: `${JSON.parse(localStorage.getItem('authToken')).token}`,
       },
