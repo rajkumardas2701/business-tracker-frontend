@@ -17,7 +17,8 @@
 .deal-row {
   display: flex;
   flex-direction: row;
-  /* border-bottom: 1px solid black; */
+  justify-content: space-between;
+  width: 100%;
 }
 
 .deal-btn {
@@ -33,13 +34,18 @@
 }
 
 .deal-content > p {
-  margin-bottom: 0px;
+  margin-bottom: 0;
 }
 
 .deal-head {
   justify-content: space-around;
-  align-items : center;
+  align-items: center;
   font-weight: bold;
+}
+
+.deal-balance p {
+  align-content: center;
+  margin: 5px 0;
 }
 
 .deal-content p:last-child {
@@ -56,9 +62,4 @@
   margin: 5px 0;
   background-color: green;
   color: white;
-}
-
-.deal-balance p {
-  align-content: center;
-  margin: 5px 0;
 }

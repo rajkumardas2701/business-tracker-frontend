@@ -39,10 +39,14 @@
   flex-direction: row;
 }
 
-.deal-loader {
-  margin: 150px;
+#tail-spin-loading {
   width: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  margin: auto !important;
+  flex-direction: row;
+  justify-self: center;
+  text-align: center;
+}
+
+.deal-loader {
+  text-align: center;
 }
