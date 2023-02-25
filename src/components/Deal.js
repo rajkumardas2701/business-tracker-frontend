@@ -11,8 +11,13 @@ const Deal = ({
 }) => {
   const [showEditDeal, setShowEditDeal] = useState(false);
   const [dealBalance, setDealBalance] = useState(0.0);
+  const [farmerAmount, setFarmerAmount] = useState(0.0);
+  const [dealerAmount, setDealerAmount] = useState(0.0);
   useEffect(() => {
-    setDealBalance(calulateBalance(deal));
+    const [a, b, c] = calulateBalance(deal);
+    setDealBalance(a);
+    setFarmerAmount(b);
+    setDealerAmount(c);
   }, [deal]);
   const handleDealClick = (e) => {
     setDealID(deal.id);
@@ -134,6 +139,25 @@ const Deal = ({
             </p>
             <p>
               {deal.d_rate}
+            </p>
+          </div>
+        </div>
+
+        <div className="deal-row">
+          <div className="deal-content">
+            <p>
+              Farmer Amount:
+            </p>
+            <p>
+              {farmerAmount}
+            </p>
+          </div>
+          <div className="deal-content">
+            <p>
+              Dealer Amount:
+            </p>
+            <p>
+              {dealerAmount}
             </p>
           </div>
         </div>

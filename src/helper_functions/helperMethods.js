@@ -16,7 +16,7 @@ const calulateBalance = (deal) => {
   const dealExp = (parseFloat(deal.d_quantity) - parseFloat(deal.d_choot))
    * parseFloat(deal.d_rate);
   const final = (dealExp - farExp) - parseFloat(deal.labour_charge) - parseFloat(deal.vehicle_fare);
-  return final;
+  return [final, farExp, dealExp];
 };
 
 const filterDealTransactions = (txs, id) => txs.filter((tx) => tx.deal_id === id);
