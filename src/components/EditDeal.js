@@ -7,7 +7,7 @@ import '../styles/AuthForm.css';
 
 const EditDeal = ({ deal, setShowEditDeal }) => {
   const {
-    setDeals, setApiMsg, setShowMessage, setMsgColor,
+    setDeals, setApiMsg, setShowMessage, setMsgColor, setShowApiMsgLoader,
   } = useContext(DashboardContext);
   const [vehicleDate, setVehicleDate] = useState(deal.vehicle_date);
   const [fName, setFName] = useState(deal.f_name);
@@ -35,7 +35,7 @@ const EditDeal = ({ deal, setShowEditDeal }) => {
       vehicle_fare: vehicleFare,
       labour_charge: labourCharge,
     };
-    updateDeal(formData, setDeals, setApiMsg, setShowMessage, setMsgColor);
+    updateDeal(formData, setDeals, setApiMsg, setShowMessage, setMsgColor, setShowApiMsgLoader);
     setShowEditDeal(false);
     e.preventDefault();
   };

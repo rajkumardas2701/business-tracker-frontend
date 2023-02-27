@@ -6,7 +6,8 @@ import '../styles/CreateTransaction.css';
 
 const EditTransaction = () => {
   const {
-    setShowEditTransactionForm, editFormData, setTxs, setApiMsg, setShowMessage, setMsgColor,
+    setShowEditTransactionForm, editFormData, setTxs,
+    setApiMsg, setShowMessage, setMsgColor, setShowApiMsgLoader,
   } = useContext(DashboardContext);
   const [date, setDate] = useState(editFormData.date);
   const [actionBy, setActionBy] = useState(editFormData.action_by);
@@ -23,7 +24,7 @@ const EditTransaction = () => {
       amount,
       remark,
     };
-    updateTx(formData, setTxs, setApiMsg, setShowMessage, setMsgColor);
+    updateTx(formData, setTxs, setApiMsg, setShowMessage, setMsgColor, setShowApiMsgLoader);
     setShowEditTransactionForm(false);
     e.preventDefault();
   };

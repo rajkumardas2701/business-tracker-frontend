@@ -19,7 +19,7 @@ const CreateDeal = ({ setShowCreateDeal }) => {
   const [vehicleFare, setVehicleFare] = useState(0.0);
   const [labourCharge, setLabourCharge] = useState(0.0);
   const {
-    setDeals, setApiMsg, setShowMessage, setMsgColor,
+    setDeals, setApiMsg, setShowMessage, setMsgColor, setShowApiMsgLoader,
   } = useContext(DashboardContext);
 
   const handleSubmit = (e) => {
@@ -37,7 +37,7 @@ const CreateDeal = ({ setShowCreateDeal }) => {
       vehicle_fare: vehicleFare,
       labour_charge: labourCharge,
     };
-    postDeal(setDeals, setApiMsg, setShowMessage, setMsgColor, formData);
+    postDeal(setDeals, setApiMsg, setShowMessage, setMsgColor, formData, setShowApiMsgLoader);
     setVehicle('');
     setDate('');
     setFName('');

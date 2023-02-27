@@ -24,3 +24,7 @@
 .msg-err {
   background-color: red;
 }
+
+.msg-load {
+  background-color: orange;
+}

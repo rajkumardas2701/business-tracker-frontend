@@ -5,7 +5,7 @@ import { deleteDealCall, deleteTxCall } from '../utils/apiCalls';
 
 const DeleteWarning = ({ fn, deleteTxID, dealID }) => {
   const {
-    setTxs, setApiMsg, setShowMessage, setMsgColor, setDeals,
+    setTxs, setApiMsg, setShowMessage, setMsgColor, setDeals, setShowApiMsgLoader,
   } = useContext(DashboardContext);
   const handleFormCancel = (e) => {
     fn(false);
@@ -13,10 +13,10 @@ const DeleteWarning = ({ fn, deleteTxID, dealID }) => {
   };
   const handleSubmit = (e) => {
     if (deleteTxID) {
-      deleteTxCall(setTxs, deleteTxID, setApiMsg, setShowMessage, setMsgColor);
+      deleteTxCall(setTxs, deleteTxID, setApiMsg, setShowMessage, setMsgColor, setShowApiMsgLoader);
     }
     if (dealID) {
-      deleteDealCall(setDeals, dealID, setApiMsg, setShowMessage, setMsgColor);
+      deleteDealCall(setDeals, dealID, setApiMsg, setShowMessage, setMsgColor, setShowApiMsgLoader);
     }
     fn(false);
     e.preventDefault();

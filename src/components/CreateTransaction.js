@@ -15,7 +15,8 @@ const CreateTransaction = ({ setShowCreateTransaction }) => {
   const [selectedOption, setSelectedoption] = useState('dealNo');
   const [expandYes, setExpandYes] = useState(false);
   const {
-    setTxs, setApiMsg, setShowMessage, setMsgColor, setDeals, setSessionDetails, deals,
+    setTxs, setApiMsg, setShowMessage, setMsgColor, setDeals,
+    setSessionDetails, deals, setShowApiMsgLoader,
   } = useContext(DashboardContext);
 
   const handleFormCancel = (e) => {
@@ -37,7 +38,7 @@ const CreateTransaction = ({ setShowCreateTransaction }) => {
       remark,
       deal_id: dealID,
     };
-    postTx(setTxs, formData, setApiMsg, setShowMessage, setMsgColor);
+    postTx(setTxs, formData, setApiMsg, setShowMessage, setMsgColor, setShowApiMsgLoader);
     setShowCreateTransaction(false);
     e.preventDefault();
   };

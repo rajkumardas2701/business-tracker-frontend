@@ -18,16 +18,18 @@ const Dashboard = () => {
   const [showEditTransactionForm, setShowEditTransactionForm] = useState(false);
   const [editFormData, setEditFormData] = useState({});
   const { setSessionDetails } = useContext(SessionContext);
+  const [showApiMsgLoader, setShowApiMsgLoader] = useState(false);
   // const [showSideTxs, setShowSideTxs] = useState(true);
   useEffect(() => {
-    fetchDeals(setDeals, setApiMsg, setShowMessage, setMsgColor, setSessionDetails);
-    fetchTxs(setTxs, setApiMsg, setShowMessage, setMsgColor);
+    fetchDeals(setDeals, setApiMsg, setShowMessage, setMsgColor,
+      setSessionDetails, setShowApiMsgLoader);
+    fetchTxs(setTxs, setApiMsg, setShowMessage, setMsgColor, setShowApiMsgLoader);
   }, [setSessionDetails]);
 
   return (
     <div className="dashboard-container">
       {
-        showMessage && apiMsg !== '' && <p className={`dashboard-msg ${msgColor}`}>{apiMsg}</p>
+        (showMessage || showApiMsgLoader) && apiMsg !== '' && <p className={`dashboard-msg ${msgColor}`}>{apiMsg}</p>
       }
       <DashboardContext.Provider value={{
         deals,
@@ -44,6 +46,8 @@ const Dashboard = () => {
         setEditFormData,
         txs,
         setTxs,
+        showApiMsgLoader,
+        setShowApiMsgLoader,
       }}
       >
         <Balance />

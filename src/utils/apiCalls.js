@@ -30,7 +30,11 @@ const authCall = async (user, setSessionDetails, type, setShowAuthLoader) => {
   }
 };
 
-const fetchDeals = async (setDeals, setApiMsg, setShowMessage, setMsgColor, setSessionDetails) => {
+const fetchDeals = async (setDeals, setApiMsg, setShowMessage,
+  setMsgColor, setSessionDetails, setShowApiMsgLoader) => {
+  setMsgColor('msg-load');
+  setApiMsg('Fetching Deals..!!!');
+  setShowApiMsgLoader(true);
   try {
     const result = await axios.get(`${apiURL}/deals`, {
       headers: {
@@ -44,6 +48,7 @@ const fetchDeals = async (setDeals, setApiMsg, setShowMessage, setMsgColor, setS
     setTimeout(() => {
       setShowMessage(false);
     }, 5000);
+    setShowApiMsgLoader(false);
   } catch (error) {
     setDeals(error.response ? error.response.data.deals : []);
     setApiMsg(error.response ? error.response.data.message : error.message);
@@ -68,10 +73,15 @@ const fetchDeals = async (setDeals, setApiMsg, setShowMessage, setMsgColor, setS
         }
       }, 5000, error);
     }
+    setShowApiMsgLoader(false);
   }
 };
 
-const postDeal = async (setDeals, setApiMsg, setShowMessage, setMsgColor, formData) => {
+const postDeal = async (setDeals, setApiMsg, setShowMessage,
+  setMsgColor, formData, setShowApiMsgLoader) => {
+  setMsgColor('msg-load');
+  setApiMsg('Posting Deal...!!!');
+  setShowApiMsgLoader(true);
   try {
     const result = await axios.post(`${apiURL}/deals`, { formData }, {
       headers: {
@@ -85,6 +95,7 @@ const postDeal = async (setDeals, setApiMsg, setShowMessage, setMsgColor, formDa
     setTimeout(() => {
       setShowMessage(false);
     }, 5000);
+    setShowApiMsgLoader(false);
   } catch (error) {
     setApiMsg(error.response ? error.response.data.message : error.message);
     setShowMessage(true);
@@ -92,10 +103,15 @@ const postDeal = async (setDeals, setApiMsg, setShowMessage, setMsgColor, formDa
     setTimeout(() => {
       setShowMessage(false);
     }, 5000);
+    setShowApiMsgLoader(false);
   }
 };
 
-const updateDeal = async (formData, setDeals, setApiMsg, setShowMessage, setMsgColor) => {
+const updateDeal = async (formData, setDeals, setApiMsg,
+  setShowMessage, setMsgColor, setShowApiMsgLoader) => {
+  setMsgColor('msg-load');
+  setApiMsg('Updating Deal...!!!');
+  setShowApiMsgLoader(true);
   try {
     const result = await axios.patch(`${apiURL}/deals/${formData.id}`, { formData }, {
       headers: {
@@ -109,6 +125,7 @@ const updateDeal = async (formData, setDeals, setApiMsg, setShowMessage, setMsgC
     setTimeout(() => {
       setShowMessage(false);
     }, 5000);
+    setShowApiMsgLoader(false);
   } catch (error) {
     setApiMsg(error.response ? error.response.data.message : error.message);
     setShowMessage(true);
@@ -116,10 +133,15 @@ const updateDeal = async (formData, setDeals, setApiMsg, setShowMessage, setMsgC
     setTimeout(() => {
       setShowMessage(false);
     }, 5000);
+    setShowApiMsgLoader(false);
   }
 };
 
-const deleteDealCall = async (setDeals, deleteDealID, setApiMsg, setShowMessage, setMsgColor) => {
+const deleteDealCall = async (setDeals, deleteDealID, setApiMsg, setShowMessage,
+  setMsgColor, setShowApiMsgLoader) => {
+  setMsgColor('msg-load');
+  setApiMsg('Deleting Deal...!!!');
+  setShowApiMsgLoader(true);
   try {
     const result = await axios.delete(`${apiURL}/deals/${deleteDealID}`, {
       headers: {
@@ -133,6 +155,7 @@ const deleteDealCall = async (setDeals, deleteDealID, setApiMsg, setShowMessage,
     setTimeout(() => {
       setShowMessage(false);
     }, 5000);
+    setShowApiMsgLoader(false);
   } catch (error) {
     setApiMsg(error.response ? error.response.data.message : error.message);
     setShowMessage(true);
@@ -140,10 +163,14 @@ const deleteDealCall = async (setDeals, deleteDealID, setApiMsg, setShowMessage,
     setTimeout(() => {
       setShowMessage(false);
     }, 5000);
+    setShowApiMsgLoader(false);
   }
 };
 
-const fetchTxs = async (setTxs, setApiMsg, setShowMessage, setMsgColor) => {
+const fetchTxs = async (setTxs, setApiMsg, setShowMessage, setMsgColor, setShowApiMsgLoader) => {
+  setMsgColor('msg-load');
+  setApiMsg('Fetching Transactions...!!!');
+  setShowApiMsgLoader(true);
   try {
     const result = await axios.get(`${apiURL}/financial_transactions`, {
       headers: {
@@ -157,6 +184,7 @@ const fetchTxs = async (setTxs, setApiMsg, setShowMessage, setMsgColor) => {
     setTimeout(() => {
       setShowMessage(false);
     }, 5000);
+    setShowApiMsgLoader(false);
   } catch (error) {
     setApiMsg(error.response ? error.response.data.message : error.message);
     setShowMessage(true);
@@ -164,10 +192,15 @@ const fetchTxs = async (setTxs, setApiMsg, setShowMessage, setMsgColor) => {
     setTimeout(() => {
       setShowMessage(false);
     }, 5000);
+    setShowApiMsgLoader(false);
   }
 };
 
-const postTx = async (setTxs, formData, setApiMsg, setShowMessage, setMsgColor) => {
+const postTx = async (setTxs, formData, setApiMsg, setShowMessage,
+  setMsgColor, setShowApiMsgLoader) => {
+  setMsgColor('msg-load');
+  setApiMsg('Posting Transaction...!!!');
+  setShowApiMsgLoader(true);
   try {
     const result = await axios.post(`${apiURL}/financial_transactions`, { formData }, {
       headers: {
@@ -181,6 +214,7 @@ const postTx = async (setTxs, formData, setApiMsg, setShowMessage, setMsgColor) 
     setTimeout(() => {
       setShowMessage(false);
     }, 5000);
+    setShowApiMsgLoader(false);
   } catch (error) {
     setApiMsg(error.response ? error.response.data.message : error.message);
     setShowMessage(true);
@@ -188,10 +222,15 @@ const postTx = async (setTxs, formData, setApiMsg, setShowMessage, setMsgColor) 
     setTimeout(() => {
       setShowMessage(false);
     }, 5000);
+    setShowApiMsgLoader(false);
   }
 };
 
-const updateTx = async (formData, setTxs, setApiMsg, setShowMessage, setMsgColor) => {
+const updateTx = async (formData, setTxs, setApiMsg,
+  setShowMessage, setMsgColor, setShowApiMsgLoader) => {
+  setMsgColor('msg-load');
+  setApiMsg('Updating Transaction...!!!');
+  setShowApiMsgLoader(true);
   try {
     const result = await axios.patch(`${apiURL}/financial_transactions/${formData.id}`, { formData }, {
       headers: {
@@ -205,6 +244,7 @@ const updateTx = async (formData, setTxs, setApiMsg, setShowMessage, setMsgColor
     setTimeout(() => {
       setShowMessage(false);
     }, 5000);
+    setShowApiMsgLoader(false);
   } catch (error) {
     setApiMsg(error.response ? error.response.data.message : error.message);
     setShowMessage(true);
@@ -212,10 +252,15 @@ const updateTx = async (formData, setTxs, setApiMsg, setShowMessage, setMsgColor
     setTimeout(() => {
       setShowMessage(false);
     }, 5000);
+    setShowApiMsgLoader(false);
   }
 };
 
-const deleteTxCall = async (setTxs, deleteTxID, setApiMsg, setShowMessage, setMsgColor) => {
+const deleteTxCall = async (setTxs, deleteTxID, setApiMsg,
+  setShowMessage, setMsgColor, setShowApiMsgLoader) => {
+  setMsgColor('msg-load');
+  setApiMsg('Deleting Transaction...!!!');
+  setShowApiMsgLoader(true);
   try {
     const result = await axios.delete(`${apiURL}/financial_transactions/${deleteTxID}`, {
       headers: {
@@ -229,6 +274,7 @@ const deleteTxCall = async (setTxs, deleteTxID, setApiMsg, setShowMessage, setMs
     setTimeout(() => {
       setShowMessage(false);
     }, 5000);
+    setShowApiMsgLoader(false);
   } catch (error) {
     setApiMsg(error.response ? error.response.data.message : error.message);
     setShowMessage(true);
@@ -236,6 +282,7 @@ const deleteTxCall = async (setTxs, deleteTxID, setApiMsg, setShowMessage, setMs
     setTimeout(() => {
       setShowMessage(false);
     }, 5000);
+    setShowApiMsgLoader(false);
   }
 };
 
