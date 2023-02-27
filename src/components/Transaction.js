@@ -3,6 +3,7 @@ import { useContext } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEdit, faTrash } from '@fortawesome/free-solid-svg-icons';
 import DashboardContext from '../contexts/DashboardContext';
+import '../styles/Transaction.css';
 
 const Transaction = ({
   sTx,
@@ -31,30 +32,29 @@ const Transaction = ({
     e.preventDefault();
   };
   return (
-    <tr style={{ textAlign: 'center' }}>
-      <td>
+    <div className="side-transactions-table-body-content">
+      <p className="transaction-first-four">
         {sTx.date}
-      </td>
-      <td>
+      </p>
+      <p className="transaction-first-four">
         {sTx.amount}
-      </td>
-      <td style={{ color: (sTx.send_receive === 'Sent') ? 'red' : 'green' }}>
+      </p>
+      <p style={{ color: (sTx.send_receive === 'Sent') ? 'red' : 'green' }} className="transaction-first-four-sent-receive">
         {sTx.send_receive}
-      </td>
-      <td>
+      </p>
+      <p className="transaction-first-four">
         {sTx.action_by}
-      </td>
-      <td>
+      </p>
+      <p className="transactions-remark">
         {sTx.remark}
-      </td>
-
-      <td>
+      </p>
+      <p className="edit-delete">
         <FontAwesomeIcon icon={faEdit} style={{ color: 'blue', cursor: 'pointer' }} onClick={handleEditForm} />
-      </td>
-      <td>
+      </p>
+      <p className="edit-delete">
         <FontAwesomeIcon icon={faTrash} style={{ color: 'red', cursor: 'pointer' }} onClick={handleDeleteForm} />
-      </td>
-    </tr>
+      </p>
+    </div>
   );
 };
 

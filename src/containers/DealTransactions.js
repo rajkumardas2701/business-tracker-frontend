@@ -2,63 +2,62 @@ import PropTypes from 'prop-types';
 import { useState } from 'react';
 import Transaction from '../components/Transaction';
 import DeleteWarning from '../layouts/DeleteWarning';
+import '../styles/DealTransactions.css';
 
 const DealTransactions = ({ dealTransacts, dealName }) => {
   const [showDeleteWarning, setShowDeleteWarning] = useState(false);
   const [deleteTxID, setDeleteTxID] = useState(0);
   return (
     <div className="deals-transactions-container">
-      <div className="side-transactions-list">
-        <h4 style={{ marginTop: '10px', color: 'blue' }}>
+      <div className="deals-transactions-list">
+        <h4 style={{ marginTop: '10px', color: 'blue', textAlign: 'center' }}>
           {(dealName === 'No Deal selected') ? 'Select one of the deal to see Transactions'
             : `Vehicle: ${dealName.slice(0, -6).toUpperCase()} & Date: ${dealName.slice(-8, -4)}-${dealName.slice(-4, -2)}-${dealName.slice(-2)}`}
         </h4>
-        <table>
-          <thead style={{ textAlign: 'center', margin: 'auto' }}>
-            <tr>
-              <td style={{ width: '15%' }}>
-                Date
-              </td>
-              <td>
-                Amount
-              </td>
-              <td>
-                Sent/Received
-              </td>
-              <td style={{ width: '15%' }}>
-                Action by
-              </td>
-              <td style={{ width: '30%' }}>
-                Remark
-              </td>
-              <td>
-                Edit
-              </td>
-              <td>
-                Delete
-              </td>
-            </tr>
-          </thead>
-          <tbody>
-            {(dealTransacts && dealTransacts.length)
-              ? dealTransacts.map((tx) => (
-                <Transaction
-                  key={tx.id}
-                  sTx={tx}
-                  setShowDeleteWarning={setShowDeleteWarning}
-                  showDeleteWarning={showDeleteWarning}
-                  setDeleteTxID={setDeleteTxID}
-                />
-              ))
-              : (
-                <tr>
-                  <td colSpan="7">
-                    There&apos;s no transactions under this deal
-                  </td>
-                </tr>
-              )}
-          </tbody>
-        </table>
+        <h4 className="deal-transactions-table-head">
+          <div className="side-transactions-table-head-content">
+            <p className="transaction-first-four">
+              Date
+            </p>
+            <p className="transaction-first-four">
+              Amount
+            </p>
+            <p className="transaction-first-four-sent-receive">
+              Sent/Received
+            </p>
+            <p className="transaction-first-four">
+              Action by
+            </p>
+            <p className="transactions-remark">
+              Remark
+            </p>
+            <p className="edit-delete">
+              Edit
+            </p>
+            <p className="edit-delete">
+              Delete
+            </p>
+          </div>
+        </h4>
+        <div className="deals-transactions-body">
+          {(dealTransacts && dealTransacts.length)
+            ? dealTransacts.map((tx) => (
+              <Transaction
+                key={tx.id}
+                sTx={tx}
+                setShowDeleteWarning={setShowDeleteWarning}
+                showDeleteWarning={showDeleteWarning}
+                setDeleteTxID={setDeleteTxID}
+              />
+            ))
+            : (
+              <div>
+                <p style={{ textAlign: 'center' }}>
+                  There&apos;s no transactions under this deal
+                </p>
+              </div>
+            )}
+        </div>
         {showDeleteWarning
           && <DeleteWarning fn={setShowDeleteWarning} deleteTxID={deleteTxID} />}
       </div>

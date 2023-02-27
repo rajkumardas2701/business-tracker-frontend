@@ -23,10 +23,14 @@
   left: 50%;
 }
 
-.deals-list {
-  width: 40%;
+.deals {
+  width: 35%;
   height: 85vh;
+}
+
+.deals-list {
   overflow-y: scroll;
+  height: 80vh;
 }
 
 .deals-container {
@@ -49,4 +53,26 @@
 
 .deal-loader {
   text-align: center;
+}
+
+.deal-transactions-header {
+  position: relative;
+  top: 1vh;
+  left: 30vw;
+}
+
+.deal-transactions-table-head {
+  position: relative;
+}
+
+.deals-transactions-body {
+  position: relative;
+  top: -2vh;
+}
+
+.deals-header {
+  position: relative;
+  margin-top: 0;
+  margin-bottom: 5px;
+  left: 8vw;
 }

@@ -34,28 +34,30 @@ const Deals = () => {
   };
   return (
     <div className="deals-container">
-      <h3 style={{ marginRight: '20%', textAlign: 'end' }}>Deals related Transactions</h3>
+      <h3 className="deal-transactions-header">Deals related Transactions</h3>
       <div className="deal-transact">
-        <div className="deals-list">
-          <h4 style={{ textAlign: 'center' }}>Deals</h4>
-          {
-            (deals && deals.length)
-              ? deals.map((deal) => (
-                <Deal
-                  key={deal.id}
-                  deal={deal}
-                  setDealID={setDealID}
-                  showDeleteWarning={showDeleteWarning}
-                  setShowDeleteWarning={setShowDeleteWarning}
-                />
-              ))
-              : (
-                <div className="deal-loader">
-                  {/* <TailSpin /> */}
-                  <p>No Deals to show yet</p>
-                </div>
-              )
-          }
+        <div className="deals">
+          <h4 className="deals-header">Deals</h4>
+          <div className="deals-list">
+            {
+              (deals && deals.length)
+                ? deals.map((deal) => (
+                  <Deal
+                    key={deal.id}
+                    deal={deal}
+                    setDealID={setDealID}
+                    showDeleteWarning={showDeleteWarning}
+                    setShowDeleteWarning={setShowDeleteWarning}
+                  />
+                ))
+                : (
+                  <div className="deal-loader">
+                    {/* <TailSpin /> */}
+                    <p>No Deals to show yet</p>
+                  </div>
+                )
+            }
+          </div>
         </div>
         <DealTransactions dealTransacts={dealTransacts} dealName={dealName} />
       </div>

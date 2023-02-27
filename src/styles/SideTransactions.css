@@ -2,21 +2,64 @@
   width: 50%;
 }
 
-.deals-transactions-container {
-  width: 60%;
-}
-
 .side-transactions-list {
   display: flex;
   flex-direction: column;
+  height: 87vh;
+  width: 100%;
+}
+
+.side-transactions-header {
+  top: -1vh;
   text-align: center;
 }
 
-.side-transactions-list > table > thead > tr > td,
-.side-transactions-list > table > tbody > tr > td {
-  border: 1px solid black;
+.side-transactions-header,
+.side-transactions-table-head,
+.side-transactions-table-body {
+  position: relative;
 }
 
-.side-transactions-list > table > thead > tr > td {
-  font-weight: bolder;
+.side-transactions-table-head-content {
+  display: flex;
+  flex-direction: row;
+  border-bottom: 1px solid blueviolet;
+  border-top: 1px solid blueviolet;
+  width: 100%;
+  margin-right: 0;
+}
+
+.side-transactions-table-head-content p {
+  text-align: center;
+}
+
+.transaction-first-four {
+  width: 5vw;
+}
+
+.transaction-first-four-sent-receive {
+  width: 7vw;
+  margin: 0;
+  text-align: center;
+}
+
+.transactions-remark {
+  width: 14vw;
+}
+
+.edit-delete {
+  width: 3vw;
+}
+
+.side-transactions-table-head {
+  width: 98%;
+  border-right: 1px solid black;
+  margin: 0;
+  top: 0;
+}
+
+.side-transactions-table-body {
+  top: 0;
+  overflow-y: scroll;
+  width: 100%;
 }

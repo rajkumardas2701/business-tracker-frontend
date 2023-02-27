@@ -81,7 +81,7 @@ const Deal = ({
         <div className="deal-row">
           <div className="deal-content">
             <p>
-              Farmer Quantity:
+              Farmer Qty:
             </p>
             <p>
               {deal.f_quantiy}
@@ -91,7 +91,7 @@ const Deal = ({
           </div>
           <div className="deal-content">
             <p>
-              Dealer Quantity:
+              Dealer Qty:
             </p>
             <p>
               {deal.d_quantity}
