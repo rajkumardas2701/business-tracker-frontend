@@ -61,7 +61,6 @@ const SideTransactions = () => {
               </div>
             )}
         </div>
-        {/* </div> */}
         {showDeleteWarning && <DeleteWarning fn={setShowDeleteWarning} deleteTxID={deleteTxID} />}
       </div>
     </div>
