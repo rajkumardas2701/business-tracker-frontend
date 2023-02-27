@@ -20,3 +20,8 @@
   align-items: center;
   justify-content: center;
 }
+
+.auth-loader-container {
+  position: fixed;
+  top: 25vh;
+}

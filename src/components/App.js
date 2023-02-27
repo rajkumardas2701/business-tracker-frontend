@@ -11,10 +11,14 @@ const App = () => {
     user: localStorage.getItem('authToken') ? JSON.parse(localStorage.getItem('authToken')).user : {},
     message: '',
   });
+  const [showAuthLoader, setShowAuthLoader] = useState(false);
   return (
     <div className="App">
       <header className="App-header">
-        <SessionContext.Provider value={{ sessionDetails, setSessionDetails }}>
+        <SessionContext.Provider value={{
+          sessionDetails, setSessionDetails, showAuthLoader, setShowAuthLoader,
+        }}
+        >
           <NavBar />
           {sessionDetails.logged_in ? <Dashboard /> : <Auth /> }
         </SessionContext.Provider>

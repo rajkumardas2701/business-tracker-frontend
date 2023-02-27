@@ -1,4 +1,5 @@
 import { useState, useContext, useEffect } from 'react';
+import { Puff } from 'react-loader-spinner';
 import { authCall } from '../utils/apiCalls';
 import SessionContext from '../contexts/SessionContext';
 import '../styles/AuthForm.css';
@@ -7,10 +8,12 @@ const Login = () => {
   const [phone, setPhone] = useState('');
   const [password, setPassword] = useState('');
   const [showMessage, setShowMessage] = useState(false);
-  const { sessionDetails, setSessionDetails } = useContext(SessionContext);
+  const {
+    sessionDetails, setSessionDetails, showAuthLoader, setShowAuthLoader,
+  } = useContext(SessionContext);
   const handleSubmit = (e) => {
     const user = { phone, password };
-    authCall(user, setSessionDetails, 'login');
+    authCall(user, setSessionDetails, 'login', setShowAuthLoader);
     e.preventDefault();
   };
   const handleFormCancel = (e) => {
@@ -62,7 +65,13 @@ const Login = () => {
         </div>
 
         {showMessage && sessionDetails.message !== '' && <p style={{ color: 'red' }}>{sessionDetails.message}</p>}
-
+        {
+          showAuthLoader && (
+          <div className="auth-loader-container">
+            <Puff color="blueviolet" height="60px" width="60px" />
+          </div>
+          )
+        }
       </form>
     </div>
   );

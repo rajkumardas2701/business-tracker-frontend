@@ -1,7 +1,8 @@
 import axios from 'axios';
 import apiURL from '../constants/constant';
 
-const authCall = async (user, setSessionDetails, type) => {
+const authCall = async (user, setSessionDetails, type, setShowAuthLoader) => {
+  setShowAuthLoader(true);
   try {
     const result = await axios.post(`${apiURL}/auth/${type}`, { user }, { withCredentials: true });
     localStorage.setItem('authToken', JSON.stringify({
@@ -14,6 +15,7 @@ const authCall = async (user, setSessionDetails, type) => {
       user: result.data.user,
       message: result.data.message,
     });
+    setShowAuthLoader(false);
   } catch (error) {
     localStorage.setItem('authToken', JSON.stringify({
       logged_in: error.response ? error.response.data.logged_in : false,
@@ -24,6 +26,7 @@ const authCall = async (user, setSessionDetails, type) => {
       user: error.response ? error.response.data.user : {},
       message: error.response ? error.response.data.message : error.message,
     });
+    setShowAuthLoader(false);
   }
 };
 

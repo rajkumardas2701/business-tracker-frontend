@@ -1,4 +1,5 @@
 import { useContext, useState, useEffect } from 'react';
+import { Puff } from 'react-loader-spinner';
 import SessionContext from '../contexts/SessionContext';
 import { authCall } from '../utils/apiCalls';
 import '../styles/AuthForm.css';
@@ -11,13 +12,15 @@ const Signup = () => {
   const [email, setEmail] = useState('');
   const [showMessage, setShowMessage] = useState(false);
   const [isDisabled, setIsDisabled] = useState(true);
-  const { sessionDetails, setSessionDetails } = useContext(SessionContext);
+  const {
+    sessionDetails, setSessionDetails, showAuthLoader, setShowAuthLoader,
+  } = useContext(SessionContext);
 
   const handleSubmit = (e) => {
     const user = {
       name, email, phone, password,
     };
-    authCall(user, setSessionDetails, 'signup');
+    authCall(user, setSessionDetails, 'signup', setShowAuthLoader);
     e.preventDefault();
   };
 
@@ -118,6 +121,13 @@ const Signup = () => {
         </div>
         {isDisabled && confirmPassword !== '' && <p style={{ color: 'red' }}>Passwords don&apos;t match</p>}
         {showMessage && sessionDetails.message !== '' && <p style={{ color: 'red' }}>{sessionDetails.message}</p>}
+        {
+          showAuthLoader && (
+          <div className="auth-loader-container">
+            <Puff color="blueviolet" height="60px" width="60px" />
+          </div>
+          )
+        }
       </form>
     </div>
   );
