@@ -207,7 +207,7 @@ const CreateDeal = ({ setShowCreateDeal }) => {
 
         <div className="form-elements">
           <p>
-            Gaadi Bhada:
+            Transport:
           </p>
           <input
             placeholder="Enter amount"
@@ -220,7 +220,7 @@ const CreateDeal = ({ setShowCreateDeal }) => {
 
         <div className="form-elements">
           <p>
-            Hamali:
+            Labour:
           </p>
           <input
             placeholder="Enter amount"

@@ -168,7 +168,7 @@ const EditDeal = ({ deal, setShowEditDeal }) => {
 
         <div className="form-elements">
           <p>
-            Gaadi Bhada:
+            Transport:
           </p>
           <input
             placeholder="Enter amount"
@@ -181,7 +181,7 @@ const EditDeal = ({ deal, setShowEditDeal }) => {
 
         <div className="form-elements">
           <p>
-            Hamali:
+            Labour:
           </p>
           <input
             placeholder="Enter amount"
