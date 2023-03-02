@@ -9,6 +9,7 @@ import EditTransaction from '../components/EditTransaction';
 import { filterDealTransactions, fetchDealName } from '../helper_functions/helperMethods';
 import DeleteWarning from '../layouts/DeleteWarning';
 import '../styles/Deals.css';
+import ExcelExport from '../components/ExportExcel';
 
 const Deals = () => {
   const { deals, showEditTransactionForm, txs } = useContext(DashboardContext);
@@ -52,7 +53,6 @@ const Deals = () => {
                 ))
                 : (
                   <div className="deal-loader">
-                    {/* <TailSpin /> */}
                     <p>No Deals to show yet</p>
                   </div>
                 )
@@ -64,6 +64,9 @@ const Deals = () => {
 
       <button type="submit" onClick={handleCreateDeal} className="create-deal">Create Deal</button>
       <button type="submit" onClick={handleCreateTransaction} className="create-transaction">Enter Transaction</button>
+      <div className="excel-export">
+        <ExcelExport excelData={txs} fileName={new Date()} />
+      </div>
       {showCreateDeal && <CreateDeal setShowCreateDeal={setShowCreateDeal} />}
       {showCreateTransaction && (
       <CreateTransaction
