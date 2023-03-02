@@ -1,6 +1,6 @@
 const NotFound = () => (
   <div>
-    <p>Incorrect URL</p>
+    <p>Please refresh the page again</p>
   </div>
 );
 
