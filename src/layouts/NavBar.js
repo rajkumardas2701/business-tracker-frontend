@@ -5,7 +5,7 @@ import '../styles/NavBar.css';
 const NavBar = () => {
   const { sessionDetails, setSessionDetails } = useContext(SessionContext);
   const handleSignOut = (e) => {
-    localStorage.setItem('authToken', JSON.stringify({}));
+    localStorage.removeItem('authToken');
     setSessionDetails({
       logged_in: false,
       user: {},

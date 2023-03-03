@@ -39,7 +39,7 @@ const Deal = ({
       <button type="submit" onClick={handleDealClick} className="deal-btn">
         <div className="deal-head deal-row">
           <div>
-            {`${deal.vehicle_date.slice(0, -6).toUpperCase()} | ${deal.vehicle_date.slice(-8, -4)}-${deal.vehicle_date.slice(-4, -2)}-${deal.vehicle_date.slice(-2)}`}
+            {`${deal.vehicle_date.slice(0, -8).toUpperCase()} | ${deal.vehicle_date.slice(-8, -4)}-${deal.vehicle_date.slice(-4, -2)}-${deal.vehicle_date.slice(-2)}`}
           </div>
           <div>
             <FontAwesomeIcon

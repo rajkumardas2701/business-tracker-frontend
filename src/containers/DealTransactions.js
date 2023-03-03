@@ -10,9 +10,30 @@ const DealTransactions = ({ dealTransacts, dealName }) => {
   return (
     <div className="deals-transactions-container">
       <div className="deals-transactions-list">
-        <h4 style={{ marginTop: '10px', color: 'blue', textAlign: 'center' }}>
-          {(dealName === 'No Deal selected') ? 'Select one of the deal to see Transactions'
-            : `Vehicle: ${dealName.slice(0, -6).toUpperCase()} & Date: ${dealName.slice(-8, -4)}-${dealName.slice(-4, -2)}-${dealName.slice(-2)}`}
+        <h4 style={{ marginTop: '10px', textAlign: 'center' }}>
+          {
+            (dealName === 'No Deal selected') ? <p style={{ color: 'blue', margin: 0 }}>Select one of the deal to see Transactions</p>
+              : (
+                <div className="deal-transaction-vehicle-label">
+                  <p>
+                    Vehicle:&nbsp;
+                  </p>
+                  <p style={{ color: 'blue' }}>
+                    {dealName.slice(0, -8).toUpperCase()}
+                  </p>
+                  <p>
+                  &nbsp;Date:&nbsp;
+                  </p>
+                  <p style={{ color: 'blue' }}>
+                    {dealName.slice(-8, -4)}
+                    -
+                    {dealName.slice(-4, -2)}
+                    -
+                    {dealName.slice(-2)}
+                  </p>
+                </div>
+              )
+          }
         </h4>
         <h4 className="deal-transactions-table-head">
           <div className="side-transactions-table-head-content">

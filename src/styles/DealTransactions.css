@@ -1,3 +1,13 @@
 .deals-transactions-container {
   width: 65%;
 }
+
+.deal-transaction-vehicle-label {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.deal-transaction-vehicle-label p {
+  margin: 0px;
+}

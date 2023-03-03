@@ -20,7 +20,7 @@ const App = () => {
         }}
         >
           <NavBar />
-          {sessionDetails.logged_in ? <Dashboard /> : <Auth /> }
+          {localStorage.getItem('authToken') && sessionDetails.logged_in ? <Dashboard /> : <Auth /> }
         </SessionContext.Provider>
       </header>
     </div>
