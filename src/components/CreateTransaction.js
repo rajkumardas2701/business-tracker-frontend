@@ -55,7 +55,8 @@ const CreateTransaction = ({ setShowCreateTransaction }) => {
 
   const handleDealYesClick = (e) => {
     setExpandYes(true);
-    fetchDeals(setDeals, setApiMsg, setShowMessage, setMsgColor, setSessionDetails);
+    fetchDeals(setDeals, setApiMsg, setShowMessage,
+      setMsgColor, setSessionDetails, setShowApiMsgLoader);
     e.preventDefault();
   };
 
