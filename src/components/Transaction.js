@@ -21,6 +21,7 @@ const Transaction = ({
       send_receive: sTx.send_receive,
       action_by: sTx.action_by,
       remark: sTx.remark,
+      deal_id: sTx.deal_id,
     });
     setShowEditTransactionForm(!showEditTransactionForm);
     e.preventDefault();

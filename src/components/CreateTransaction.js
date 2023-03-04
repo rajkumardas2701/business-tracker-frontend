@@ -49,10 +49,6 @@ const CreateTransaction = ({ setShowCreateTransaction }) => {
     e.preventDefault();
   };
 
-  // useEffect(() => {
-  //   setSelectedoption(selectedOption);
-  // }, [selectedOption]);
-
   const handleDealYesClick = (e) => {
     setExpandYes(true);
     fetchDeals(setDeals, setApiMsg, setShowMessage,
@@ -164,7 +160,7 @@ const CreateTransaction = ({ setShowCreateTransaction }) => {
                           {`${deal.vehicle_date.slice(0, -6).toUpperCase()} & ${deal.vehicle_date.slice(-8, -4)}-${deal.vehicle_date.slice(-4, -2)}-${deal.vehicle_date.slice(-2)}`}
                         </option>
                       ))
-                      : <option>No deals created</option>
+                      : <option>{null}</option>
                   }
                   </select>
                 </label>

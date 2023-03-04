@@ -65,7 +65,7 @@ const Deals = () => {
       <button type="submit" onClick={handleCreateDeal} className="create-deal">Create Deal</button>
       <button type="submit" onClick={handleCreateTransaction} className="create-transaction">Enter Transaction</button>
       <div className="excel-export">
-        <ExcelExport excelData={txs} fileName={new Date()} />
+        <ExcelExport excelData={txs} fileName={(new Date()).toISOString()} />
       </div>
       {showCreateDeal && <CreateDeal setShowCreateDeal={setShowCreateDeal} />}
       {showCreateTransaction && (
