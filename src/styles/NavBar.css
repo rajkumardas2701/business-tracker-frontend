@@ -1,40 +1,99 @@
-.navbar-body {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  width: 100%;
-  background-color: blueviolet;
-  position: fixed;
-  top: 0;
-  left: 0;
-}
-
-.user-greet {
-  display: flex;
-  flex-direction: row;
-  margin: auto;
-  width: 20%;
-  justify-content: center;
-  color: aliceblue;
-  font-weight: bolder;
-}
-
 .navbar-name {
   text-transform: capitalize;
 }
 
-.signout-btn {
-  justify-content: end;
-  min-width: 10%;
-  margin-right: 10px;
-  color: blueviolet;
-  font-size: large;
-  font-weight: 700;
+@media only screen and (min-width: 429px) {
+  .navbar-body {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+    background-color: blueviolet;
+    position: fixed;
+    top: 0;
+    left: 0;
+  }
+
+  .user-greet {
+    display: flex;
+    flex-direction: row;
+    margin: auto;
+    width: 20%;
+    justify-content: center;
+    color: aliceblue;
+    font-weight: bolder;
+  }
+
+  .signout-btn {
+    justify-content: end;
+    min-width: 10%;
+    margin-right: 10px;
+    color: blueviolet;
+    font-size: large;
+    font-weight: 700;
+  }
+
+  .nav-logo {
+    margin-left: 10px;
+    font-family: "Proxima Nova", Arial, Helvetica, sans-serif;
+    color: aliceblue;
+    font-weight: bolder;
+  }
+
+  .nav-logo-short {
+    display: none;
+  }
 }
 
-.nav-logo {
-  margin-left: 10px;
-  font-family: "Proxima Nova", Arial, Helvetica, sans-serif;
-  color: aliceblue;
-  font-weight: bolder;
+@media only screen and (max-width: 428px) {
+  .navbar-body {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+    background-color: blueviolet;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 40px;
+  }
+
+  .nav-logo {
+    display: none;
+  }
+
+  .nav-logo-short {
+    margin-left: 10px;
+    font-family: "Proxima Nova", Arial, Helvetica, sans-serif;
+    color: aliceblue;
+    font-weight: bolder;
+    text-align: center;
+    margin-top: 0;
+  }
+
+  .user-greet {
+    display: flex;
+    flex-direction: row;
+    margin: 0 auto;
+    width: 10%;
+    justify-content: center;
+    color: aliceblue;
+    font-weight: bolder;
+  }
+
+  .signout-btn {
+    justify-content: end;
+    width: 20%;
+    margin-right: 10px;
+    color: blueviolet;
+    font-size: 15px;
+    font-weight: 700;
+  }
+
+  .navbar-name,
+  .user-greet p {
+    text-transform: capitalize;
+    margin: 0 auto;
+    align-self: center;
+  }
 }

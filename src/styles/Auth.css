@@ -1,27 +1,63 @@
-.Auth-body {
-  display: flex;
-  flex-direction: column;
-  margin: 20px auto;
-  width: 40%;
-  align-items: center;
+@media only screen and (min-width: 429px) {
+  .Auth-body {
+    display: flex;
+    flex-direction: column;
+    margin: 20px auto;
+    width: 40%;
+    align-items: center;
+  }
+
+  .form-btn {
+    width: 30%;
+    height: 30px;
+    justify-self: center;
+    margin: 5px;
+  }
+
+  .switch-auth {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .auth-loader-container {
+    position: fixed;
+    top: 20vh;
+  }
 }
 
-.form-btn {
-  width: 30%;
-  height: 30px;
-  justify-self: center;
-  margin: 5px;
-}
+@media only screen and (max-width: 428px) {
+  .Auth-body {
+    display: flex;
+    flex-direction: column;
+    margin: 1px;
+    width: 100%;
+    align-items: center;
+  }
 
-.switch-auth {
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-}
+  .form-btn {
+    width: 80%;
+    height: 25px;
+    justify-self: center;
+    margin: 5px;
+  }
 
-.auth-loader-container {
-  position: fixed;
-  top: 25vh;
+  .switch-auth {
+    width: 90%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .form-btn-small {
+    width: 20%;
+  }
+
+  .auth-loader-container {
+    position: fixed;
+    top: 30vh;
+  }
 }

@@ -28,7 +28,7 @@ const Auth = () => {
             <p>
               Don&apos;t have an account?
             </p>
-            <button type="submit" className="form-btn" onClick={switchAuthType}>Sign Up</button>
+            <button type="submit" className="form-btn form-btn-small" onClick={switchAuthType}>Sign Up</button>
           </div>
         )
         : (
@@ -36,7 +36,7 @@ const Auth = () => {
             <p>
               Already have an account?
             </p>
-            <button type="submit" className="form-btn" onClick={switchAuthType}>Login</button>
+            <button type="submit" className="form-btn form-btn-small" onClick={switchAuthType}>Login</button>
           </div>
         )
     }

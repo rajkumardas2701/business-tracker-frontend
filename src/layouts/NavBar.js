@@ -17,6 +17,11 @@ const NavBar = () => {
   return (
     <div className="navbar-body">
       <p className="nav-logo">BUSINESS TRACKER</p>
+      <p className="nav-logo-short">
+        Business
+        <br />
+        Tracker
+      </p>
       <div className="user-greet">
         <p>
           Hi!&nbsp;
