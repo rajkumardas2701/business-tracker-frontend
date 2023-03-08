@@ -28,6 +28,12 @@
 .deals {
   width: 35%;
   height: 85vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.transactions-container {
+  width: 65%;
 }
 
 .deals-list {
@@ -36,13 +42,13 @@
 }
 
 .deals-container {
-  width: 60%;
+  width: 60vw;
   border-right: 4px solid blueviolet;
-}
-
-.deal-transact {
   display: flex;
   flex-direction: row;
+  position: relative;
+  top: 6vh;
+  left: 0;
 }
 
 #tail-spin-loading {
@@ -58,8 +64,8 @@
 }
 
 .deal-transactions-header {
-  position: relative;
-  top: 1vh;
+  position: fixed;
+  top: 5vh;
   left: 30vw;
 }
 

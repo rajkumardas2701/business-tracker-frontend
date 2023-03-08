@@ -14,15 +14,15 @@ const App = () => {
   const [showAuthLoader, setShowAuthLoader] = useState(false);
   return (
     <div className="App">
-      <header className="App-header">
-        <SessionContext.Provider value={{
-          sessionDetails, setSessionDetails, showAuthLoader, setShowAuthLoader,
-        }}
-        >
-          <NavBar />
-          {localStorage.getItem('authToken') && sessionDetails.logged_in ? <Dashboard /> : <Auth /> }
-        </SessionContext.Provider>
-      </header>
+      {/* <header className="App-header"> */}
+      <SessionContext.Provider value={{
+        sessionDetails, setSessionDetails, showAuthLoader, setShowAuthLoader,
+      }}
+      >
+        <NavBar />
+        {localStorage.getItem('authToken') && sessionDetails.logged_in ? <Dashboard /> : <Auth /> }
+      </SessionContext.Provider>
+      {/* </header> */}
     </div>
   );
 };

@@ -33,29 +33,66 @@ const Transaction = ({
     e.preventDefault();
   };
   return (
-    <div className="side-transactions-table-body-content">
-      <p className="transaction-first-four">
-        {sTx.date}
-      </p>
-      <p className="transaction-first-four">
-        {sTx.amount}
-      </p>
-      <p style={{ color: (sTx.send_receive === 'Sent') ? 'red' : 'green' }} className="transaction-first-four-sent-receive">
-        {sTx.send_receive}
-      </p>
-      <p className="transaction-first-four">
-        {sTx.action_by}
-      </p>
-      <p className="transactions-remark">
-        {sTx.remark}
-      </p>
-      <p className="edit-delete">
-        <FontAwesomeIcon icon={faEdit} style={{ color: 'blue', cursor: 'pointer' }} onClick={handleEditForm} />
-      </p>
-      <p className="edit-delete">
-        <FontAwesomeIcon icon={faTrash} style={{ color: 'red', cursor: 'pointer' }} onClick={handleDeleteForm} />
-      </p>
-    </div>
+    <>
+      <div className="side-transactions-table-body-content">
+        <p className="transaction-first-four">
+          {sTx.date}
+        </p>
+        <p className="transaction-first-four">
+          {sTx.amount}
+        </p>
+        <p style={{ color: (sTx.send_receive === 'Sent') ? 'red' : 'green' }} className="transaction-first-four-sent-receive">
+          {sTx.send_receive}
+        </p>
+        <p className="transaction-first-four">
+          {sTx.action_by}
+        </p>
+        <p className="transactions-remark">
+          {sTx.remark}
+        </p>
+        <p className="edit-delete">
+          <FontAwesomeIcon icon={faEdit} style={{ color: 'blue', cursor: 'pointer' }} onClick={handleEditForm} />
+        </p>
+        <p className="edit-delete">
+          <FontAwesomeIcon icon={faTrash} style={{ color: 'red', cursor: 'pointer' }} onClick={handleDeleteForm} />
+        </p>
+      </div>
+      <div className="side-transactions-table-body-content-small">
+        <div className="side-transactions-row1">
+          <p className="transaction-first-four">
+            {sTx.date}
+          </p>
+          <p className="transaction-first-four">
+            {sTx.amount}
+          </p>
+          <p
+            style={{ color: (sTx.send_receive === 'Sent') ? 'red' : 'green' }}
+            className="transaction-first-four-sent-receive"
+          >
+            {sTx.send_receive}
+          </p>
+          <p className="edit-delete">
+            <FontAwesomeIcon icon={faEdit} style={{ color: 'blue', cursor: 'pointer' }} onClick={handleEditForm} />
+          </p>
+          <p className="edit-delete">
+            <FontAwesomeIcon icon={faTrash} style={{ color: 'red', cursor: 'pointer' }} onClick={handleDeleteForm} />
+          </p>
+        </div>
+        <div className="side-transactions-row2">
+          <div style={{ display: 'flex', flexDirection: 'row' }}>
+            <p style={{ fontWeight: 'bold' }}>Action by:</p>
+            <p>{sTx.action_by}</p>
+          </div>
+          <div style={{ display: 'flex', flexDirection: 'row' }}>
+            <p style={{ fontWeight: 'bold' }}>Remark:</p>
+            <p>
+              {sTx.remark}
+            </p>
+          </div>
+        </div>
+      </div>
+    </>
+
   );
 };
 

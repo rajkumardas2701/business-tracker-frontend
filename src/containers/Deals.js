@@ -36,11 +36,10 @@ const Deals = () => {
   return (
     <div className="deals-container">
       <h3 className="deal-transactions-header">Deals related Transactions</h3>
-      <div className="deal-transact">
-        <div className="deals">
-          <h4 className="deals-header">Deals</h4>
-          <div className="deals-list">
-            {
+      <div className="deals">
+        <h4 className="deals-header">Deals</h4>
+        <div className="deals-list">
+          {
               (deals && deals.length)
                 ? deals.map((deal) => (
                   <Deal
@@ -57,11 +56,11 @@ const Deals = () => {
                   </div>
                 )
             }
-          </div>
         </div>
+      </div>
+      <div className="transactions-container">
         <DealTransactions dealTransacts={dealTransacts} dealName={dealName} />
       </div>
-
       <button type="submit" onClick={handleCreateDeal} className="create-deal">Create Deal</button>
       <button type="submit" onClick={handleCreateTransaction} className="create-transaction">Enter Transaction</button>
       <div className="excel-export">

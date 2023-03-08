@@ -28,10 +28,10 @@ const SideTransactions = () => {
             <p className="transaction-first-four-sent-receive">
               Sent/Received
             </p>
-            <p className="transaction-first-four">
+            <p className="transaction-first-four transaction-first-four-small">
               Action by
             </p>
-            <p className="transactions-remark">
+            <p className="transactions-remark transactions-remark-small">
               Remark
             </p>
             <p className="edit-delete">
