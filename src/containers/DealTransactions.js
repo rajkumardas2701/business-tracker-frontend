@@ -12,7 +12,14 @@ const DealTransactions = ({ dealTransacts, dealName }) => {
       <div className="deals-transactions-list">
         <h4 style={{ marginTop: '10px', textAlign: 'center' }}>
           {
-            (dealName === 'No Deal selected') ? <p style={{ color: 'blue', margin: 0 }}>Select one of the deal to see Transactions</p>
+            (dealName === 'No Deal selected') ? (
+              <p
+                style={{ color: 'blue', margin: 0 }}
+                className="deal-transaction-vehicle-label"
+              >
+                Select one of the deal to see Transactions
+              </p>
+            )
               : (
                 <div className="deal-transaction-vehicle-label">
                   <p>
@@ -46,10 +53,10 @@ const DealTransactions = ({ dealTransacts, dealName }) => {
             <p className="transaction-first-four-sent-receive">
               Sent/Received
             </p>
-            <p className="transaction-first-four">
+            <p className="transaction-first-four transaction-first-four-small">
               Action by
             </p>
-            <p className="transactions-remark">
+            <p className="transactions-remark transactions-remark-small">
               Remark
             </p>
             <p className="edit-delete">

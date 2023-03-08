@@ -58,34 +58,34 @@ const Transaction = ({
         </p>
       </div>
       <div className="side-transactions-table-body-content-small">
-        <div className="side-transactions-row1">
-          <p className="transaction-first-four">
+        <div className="side-transactions-row1" style={{ marginTop: 0 }}>
+          <p className="transaction-first-four" style={{ margin: 0, textAlign: 'center' }}>
             {sTx.date}
           </p>
-          <p className="transaction-first-four">
+          <p className="transaction-first-four" style={{ margin: 0, textAlign: 'center', fontWeight: '600' }}>
             {sTx.amount}
           </p>
           <p
-            style={{ color: (sTx.send_receive === 'Sent') ? 'red' : 'green' }}
+            style={{ color: (sTx.send_receive === 'Sent') ? 'red' : 'green', margin: 0 }}
             className="transaction-first-four-sent-receive"
           >
             {sTx.send_receive}
           </p>
-          <p className="edit-delete">
+          <p className="edit-delete" style={{ margin: 0, textAlign: 'center' }}>
             <FontAwesomeIcon icon={faEdit} style={{ color: 'blue', cursor: 'pointer' }} onClick={handleEditForm} />
           </p>
-          <p className="edit-delete">
+          <p className="edit-delete" style={{ margin: 0, textAlign: 'center' }}>
             <FontAwesomeIcon icon={faTrash} style={{ color: 'red', cursor: 'pointer' }} onClick={handleDeleteForm} />
           </p>
         </div>
         <div className="side-transactions-row2">
           <div style={{ display: 'flex', flexDirection: 'row' }}>
-            <p style={{ fontWeight: 'bold' }}>Action by:</p>
-            <p>{sTx.action_by}</p>
+            <p style={{ fontWeight: 'bold', margin: 0 }}>Action by:</p>
+            <p style={{ margin: 0 }}>{sTx.action_by}</p>
           </div>
           <div style={{ display: 'flex', flexDirection: 'row' }}>
-            <p style={{ fontWeight: 'bold' }}>Remark:</p>
-            <p>
+            <p style={{ fontWeight: 'bold', margin: 0 }}>Remark:</p>
+            <p style={{ margin: 0 }}>
               {sTx.remark}
             </p>
           </div>

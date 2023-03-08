@@ -1,86 +1,109 @@
-.create-deal,
-.create-transaction {
-  width: 20%;
-  margin: auto 25px;
-  height: 5vh;
-  color: white;
-  background-color: green;
-  font-size: larger;
-  font-weight: bolder;
-  border-radius: 10px;
-  cursor: pointer;
+@media only screen and (min-width: 429px) {
+  .create-deal,
+  .create-transaction {
+    width: 20%;
+    margin: auto 25px;
+    height: 5vh;
+    color: white;
+    background-color: green;
+    font-size: larger;
+    font-weight: bolder;
+    border-radius: 10px;
+    cursor: pointer;
+  }
+
+  .create-deal {
+    position: fixed;
+    bottom: 0%;
+    left: 0%;
+    z-index: 999;
+  }
+
+  .create-transaction {
+    position: fixed;
+    bottom: 0%;
+    left: 40%;
+    z-index: 999;
+  }
+
+  .deals {
+    width: 35%;
+    height: 85vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .transactions-container {
+    width: 65%;
+  }
+
+  .deals-list {
+    overflow-y: scroll;
+    height: 80vh;
+  }
+
+  .deals-container {
+    width: 60vw;
+    border-right: 4px solid blueviolet;
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    top: 6vh;
+    left: 0;
+  }
+
+  #tail-spin-loading {
+    width: 100%;
+    margin: auto !important;
+    flex-direction: row;
+    justify-self: center;
+    text-align: center;
+  }
+
+  .deal-loader {
+    text-align: center;
+  }
+
+  .deal-transactions-header {
+    position: fixed;
+    top: 5vh;
+    left: 30vw;
+  }
+
+  .deal-transactions-table-head {
+    position: relative;
+  }
+
+  .deals-transactions-body {
+    position: relative;
+    top: -2vh;
+  }
+
+  .deals-header {
+    position: relative;
+    margin-top: 0;
+    margin-bottom: 5px;
+    left: 8vw;
+  }
 }
 
-.create-deal {
-  position: fixed;
-  bottom: 0%;
-  left: 0%;
-  z-index: 999;
-}
+@media only screen and (max-width: 428px) {
+  .deal-transactions-header {
+    display: none;
+  }
 
-.create-transaction {
-  position: fixed;
-  bottom: 0%;
-  left: 40%;
-  z-index: 999;
-}
+  .deals-header {
+    display: none;
+  }
 
-.deals {
-  width: 35%;
-  height: 85vh;
-  display: flex;
-  flex-direction: column;
-}
+  .deals-container {
+    width: 99vw;
+    margin: auto;
+    position: fixed;
+    top: 15vh;
+  }
 
-.transactions-container {
-  width: 65%;
-}
-
-.deals-list {
-  overflow-y: scroll;
-  height: 80vh;
-}
-
-.deals-container {
-  width: 60vw;
-  border-right: 4px solid blueviolet;
-  display: flex;
-  flex-direction: row;
-  position: relative;
-  top: 6vh;
-  left: 0;
-}
-
-#tail-spin-loading {
-  width: 100%;
-  margin: auto !important;
-  flex-direction: row;
-  justify-self: center;
-  text-align: center;
-}
-
-.deal-loader {
-  text-align: center;
-}
-
-.deal-transactions-header {
-  position: fixed;
-  top: 5vh;
-  left: 30vw;
-}
-
-.deal-transactions-table-head {
-  position: relative;
-}
-
-.deals-transactions-body {
-  position: relative;
-  top: -2vh;
-}
-
-.deals-header {
-  position: relative;
-  margin-top: 0;
-  margin-bottom: 5px;
-  left: 8vw;
+  .deal-loader {
+    text-align: center;
+  }
 }
