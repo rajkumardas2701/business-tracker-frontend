@@ -1,5 +1,5 @@
 @media only screen and (min-width: 429px) {
-  .create-deal,
+  /* .create-deal,
   .create-transaction {
     width: 20%;
     margin: auto 25px;
@@ -24,7 +24,7 @@
     bottom: 0%;
     left: 40%;
     z-index: 999;
-  }
+  } */
 
   .deals {
     width: 35%;
@@ -105,5 +105,11 @@
 
   .deal-loader {
     text-align: center;
+  }
+
+  .deals-list {
+    display: flex;
+    overflow-x: scroll;
+    height: 35vh;
   }
 }

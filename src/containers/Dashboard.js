@@ -6,6 +6,9 @@ import '../styles/Dashboard.css';
 import SideTransactions from './SideTransactions';
 import Balance from '../layouts/Balance';
 import SessionContext from '../contexts/SessionContext';
+import ExcelExport from '../components/ExportExcel';
+import CreateDeal from '../components/CreateDeal';
+import CreateTransaction from '../components/CreateTransaction';
 
 const Dashboard = () => {
   const [deals, setDeals] = useState([]);
@@ -19,6 +22,8 @@ const Dashboard = () => {
   const { setSessionDetails } = useContext(SessionContext);
   const [showApiMsgLoader, setShowApiMsgLoader] = useState(false);
   const [showDeals, setShowDeals] = useState(false);
+  const [showCreateDeal, setShowCreateDeal] = useState(false);
+  const [showCreateTransaction, setShowCreateTransaction] = useState(false);
   useEffect(() => {
     fetchDeals(setDeals, setApiMsg, setShowMessage, setMsgColor,
       setSessionDetails, setShowApiMsgLoader);
@@ -26,6 +31,14 @@ const Dashboard = () => {
   }, [setSessionDetails]);
   const handleSwitch = (e) => {
     setShowDeals(!showDeals);
+    e.preventDefault();
+  };
+  const handleCreateDeal = (e) => {
+    setShowCreateDeal(!showCreateDeal);
+    e.preventDefault();
+  };
+  const handleCreateTransaction = (e) => {
+    setShowCreateTransaction(!showCreateTransaction);
     e.preventDefault();
   };
   return (
@@ -89,6 +102,18 @@ const Dashboard = () => {
             {showDeals ? <Deals /> : <SideTransactions />}
           </div>
         </div>
+        <button type="submit" onClick={handleCreateDeal} className="create-deal">Create Deal</button>
+        <button type="submit" onClick={handleCreateTransaction} className="create-transaction">Enter Transaction</button>
+        <div className="excel-export">
+          <ExcelExport excelData={txs} fileName={(new Date()).toISOString()} />
+        </div>
+
+        {showCreateDeal && <CreateDeal setShowCreateDeal={setShowCreateDeal} />}
+        {showCreateTransaction && (
+        <CreateTransaction
+          setShowCreateTransaction={setShowCreateTransaction}
+        />
+        )}
       </DashboardContext.Provider>
     </div>
   );

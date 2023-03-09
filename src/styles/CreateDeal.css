@@ -1,9 +1,23 @@
-.create-deal-container {
-  width: 30%;
-  position: fixed;
-  top: 40%;
-  left: 50%;
-  z-index: 9999;
-  backdrop-filter: blur(100px);
-  transform: translate(-50%, -50%);
+@media only screen and (min-width: 429px) {
+  .create-deal-container {
+    width: 30%;
+    position: fixed;
+    top: 40%;
+    left: 50%;
+    z-index: 9999;
+    backdrop-filter: blur(100px);
+    transform: translate(-50%, -50%);
+  }
+}
+
+@media only screen and (max-width: 428px) {
+  .create-deal-container {
+    width: 99%;
+    position: fixed;
+    top: 40%;
+    left: 50%;
+    z-index: 9999;
+    backdrop-filter: blur(100px);
+    transform: translate(-50%, -50%);
+  }
 }

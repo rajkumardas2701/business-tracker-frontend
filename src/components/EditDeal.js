@@ -72,7 +72,6 @@ const EditDeal = ({ deal, setShowEditDeal }) => {
             name="fName"
             value={fName}
             onChange={(e) => setFName(e.target.value)}
-            required
           />
         </div>
         <div className="form-elements">

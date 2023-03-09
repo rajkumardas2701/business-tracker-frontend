@@ -17,7 +17,7 @@ const ExcelExport = ({ excelData, fileName }) => {
   return (
     <div>
       <button type="submit" onClick={() => exportToExcel(fileName)} className="excel-export">
-        Export Transactions
+        Export Txs
       </button>
     </div>
   );

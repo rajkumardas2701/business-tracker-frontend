@@ -22,4 +22,15 @@
   .deal-transactions-table-head {
     margin: 0;
   }
+
+  .deals-transactions-container {
+    position: fixed;
+    top: 45vh;
+  }
+
+  .deals-transactions-body {
+    /* border: 1px solid black; */
+    height: 45vh;
+    overflow-y: scroll;
+  }
 }

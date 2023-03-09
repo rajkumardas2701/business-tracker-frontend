@@ -34,7 +34,7 @@ const Deal = ({
   };
 
   return (
-    <div type="submit" className="deal-container">
+    <div className="deal-container">
       {showEditDeal && <EditDeal deal={deal} setShowEditDeal={setShowEditDeal} />}
       <button type="submit" onClick={handleDealClick} className="deal-btn">
         <div className="deal-head deal-row">
@@ -62,7 +62,7 @@ const Deal = ({
         <div className="deal-row">
           <div className="deal-content">
             <p>
-              Farmer name:
+              Farmer:
             </p>
             <p>
               {deal.f_name}
@@ -70,7 +70,7 @@ const Deal = ({
           </div>
           <div className="deal-content">
             <p>
-              Dealer Name:
+              Dealer:
             </p>
             <p>
               {deal.d_name}
@@ -81,7 +81,7 @@ const Deal = ({
         <div className="deal-row">
           <div className="deal-content">
             <p>
-              Farmer Qty:
+              Qty (in KG):
             </p>
             <p>
               {deal.f_quantiy}
@@ -91,7 +91,7 @@ const Deal = ({
           </div>
           <div className="deal-content">
             <p>
-              Dealer Qty:
+              Qty (in KG):
             </p>
             <p>
               {deal.d_quantity}
@@ -104,7 +104,7 @@ const Deal = ({
         <div className="deal-row">
           <div className="deal-content">
             <p>
-              Farmer discount:
+              Discount (in KG):
             </p>
             <p>
               {deal.f_choot}
@@ -114,7 +114,7 @@ const Deal = ({
           </div>
           <div className="deal-content">
             <p>
-              Dealer discount:
+              Discount (in KG):
             </p>
             <p>
               {deal.d_choot}
@@ -127,7 +127,7 @@ const Deal = ({
         <div className="deal-row">
           <div className="deal-content">
             <p>
-              Farmer Rate:
+              Rate:
             </p>
             <p>
               {deal.f_rate}
@@ -135,7 +135,7 @@ const Deal = ({
           </div>
           <div className="deal-content">
             <p>
-              Dealer Rate:
+              Rate:
             </p>
             <p>
               {deal.d_rate}
@@ -146,7 +146,7 @@ const Deal = ({
         <div className="deal-row">
           <div className="deal-content">
             <p>
-              Farmer Amount:
+              Amount:
             </p>
             <p>
               {farmerAmount}
@@ -154,7 +154,7 @@ const Deal = ({
           </div>
           <div className="deal-content">
             <p>
-              Dealer Amount:
+              Amount:
             </p>
             <p>
               {dealerAmount}
@@ -165,7 +165,7 @@ const Deal = ({
         <div className="deal-row">
           <div className="deal-content">
             <p>
-              Gaadi Bhada:
+              Transport:
             </p>
             <p>
               {deal.vehicle_fare}
@@ -173,7 +173,7 @@ const Deal = ({
           </div>
           <div className="deal-content">
             <p>
-              Hamali:
+              Labour:
             </p>
             <p>
               {deal.labour_charge}
