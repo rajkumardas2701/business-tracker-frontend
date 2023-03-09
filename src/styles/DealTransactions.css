@@ -25,12 +25,12 @@
 
   .deals-transactions-container {
     position: fixed;
-    top: 48vh;
+    top: 45vh;
   }
 
   .deals-transactions-body {
-    /* border: 1px solid black; */
-    height: 41vh;
+    border: 1px solid black;
+    height: 44vh;
     overflow-y: scroll;
   }
 }
