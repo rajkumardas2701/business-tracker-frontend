@@ -117,4 +117,28 @@
     left: 35%;
     z-index: 999;
   }
+
+  .dashboard-msg {
+    color: azure;
+    font-weight: bolder;
+    width: 80%;
+    margin: auto;
+    position: fixed;
+    top: 2vh;
+    left: 10%;
+    text-align: center;
+    z-index: 1000;
+  }
+
+  .msg-ok {
+    background-color: green;
+  }
+
+  .msg-err {
+    background-color: red;
+  }
+
+  .msg-load {
+    background-color: orange;
+  }
 }
