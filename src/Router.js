@@ -7,9 +7,8 @@ import NotFound from './layouts/NotFound';
 const Router = createBrowserRouter(
   createRoutesFromElements(
     <>
-      <Route path="/" element={<App />} />
-      <Route component={NotFound} />
-      {/* errorElement={<NotFound />}  */}
+      <Route path="/" element={<App />} errorElement={<NotFound />} />
+      <Route errorElement={<NotFound />} />
     </>,
   ),
 );
