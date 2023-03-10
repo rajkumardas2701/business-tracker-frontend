@@ -1,0 +1,15 @@
+#drop-down {
+  width: 100%;
+}
+
+.form-input-choices {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+@media only screen and (max-width: 428px) {
+  /* .create-deal-container {
+    width: 90%;
+  } */
+}

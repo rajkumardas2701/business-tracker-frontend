@@ -1,0 +1,73 @@
+@media only screen and (min-width: 429px) {
+  .transaction-first-four {
+    width: 5vw;
+  }
+
+  .transactions-remark {
+    width: 14vw;
+  }
+
+  .edit-delete {
+    width: 3vw;
+  }
+
+  .transaction-first-four,
+  .transactions-remark,
+  .edit-delete,
+  .transaction-first-four-sent-receive {
+    border-right: 1px solid black;
+    text-align: center;
+    margin: 0;
+  }
+
+  .side-transactions-table-body-content {
+    display: flex;
+    flex-direction: row;
+    border-bottom: 1px solid blueviolet;
+    width: 100%;
+  }
+
+  .transaction-first-four-sent-receive {
+    width: 7vw;
+  }
+
+  .side-transactions-table-body-content-small {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 428px) {
+  .side-transactions-table-body-content {
+    display: none;
+  }
+
+  .side-transactions-table-body-content-small {
+    display: flex;
+    flex-direction: column;
+    border-bottom: 1px solid blueviolet;
+    width: 100%;
+  }
+
+  .side-transactions-row1 {
+    display: flex;
+    flex-direction: row;
+    margin-left: 2vw;
+    justify-content: space-between;
+  }
+
+  .side-transactions-row2 {
+    display: flex;
+    flex-direction: column;
+    margin-left: 2vw;
+  }
+
+  .side-transactions-row2 p {
+    width: 30vw;
+    justify-content: space-between;
+    text-align: left !important;
+  }
+
+  .side-transactions-row2 p:last-child {
+    width: 100vw;
+  }
+}

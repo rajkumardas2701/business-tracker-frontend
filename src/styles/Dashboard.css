@@ -1,0 +1,144 @@
+@media only screen and (min-width: 429px) {
+  .dashboard-container {
+    margin-top: 55px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .dashboard-msg {
+    color: azure;
+    font-weight: bolder;
+    width: 20%;
+    margin: auto;
+    position: fixed;
+    top: 60px;
+    left: 40%;
+    text-align: center;
+  }
+
+  .msg-ok {
+    background-color: green;
+  }
+
+  .msg-err {
+    background-color: red;
+  }
+
+  .msg-load {
+    background-color: orange;
+  }
+
+  .deal-transactions-switch-container-small {
+    display: none;
+  }
+
+  .deal-transactions-large {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .create-deal,
+  .create-transaction {
+    width: 20%;
+    margin: auto 25px;
+    height: 5vh;
+    color: white;
+    background-color: green;
+    font-size: larger;
+    font-weight: bolder;
+    border-radius: 10px;
+    cursor: pointer;
+  }
+
+  .create-deal {
+    position: fixed;
+    bottom: 0%;
+    left: 0%;
+    z-index: 999;
+  }
+
+  .create-transaction {
+    position: fixed;
+    bottom: 0%;
+    left: 40%;
+    z-index: 999;
+  }
+}
+
+@media only screen and (max-width: 428px) {
+  .deal-transactions-large {
+    display: none;
+  }
+
+  .deal-transactions-switch-container-small {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: -5.5vh;
+  }
+
+  .deals-transactions-switch {
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    width: 100vw;
+    top: 15vh;
+  }
+
+  .showDeals-false {
+    background-color: greenyellow;
+  }
+
+  .create-deal,
+  .create-transaction {
+    width: 30%;
+    margin: auto 10px;
+    height: 4vh;
+    color: white;
+    background-color: green;
+    font-size: 12px;
+    font-weight: bolder;
+    border-radius: 10px;
+    cursor: pointer;
+  }
+
+  .create-deal {
+    position: fixed;
+    bottom: 0%;
+    left: 0%;
+    z-index: 999;
+  }
+
+  .create-transaction {
+    position: fixed;
+    bottom: 0%;
+    left: 35%;
+    z-index: 999;
+  }
+
+  .dashboard-msg {
+    color: azure;
+    font-weight: bolder;
+    width: 80%;
+    margin: auto;
+    position: fixed;
+    top: 2vh;
+    left: 10%;
+    text-align: center;
+    z-index: 1000;
+  }
+
+  .msg-ok {
+    background-color: green;
+  }
+
+  .msg-err {
+    background-color: red;
+  }
+
+  .msg-load {
+    background-color: orange;
+  }
+}

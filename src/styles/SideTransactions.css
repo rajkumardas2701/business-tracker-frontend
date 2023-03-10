@@ -1,0 +1,160 @@
+@media only screen and (min-width: 429px) {
+  .side-transactions-container {
+    width: 39.5vw;
+  }
+
+  .side-transactions-list {
+    display: flex;
+    flex-direction: column;
+    height: 87vh;
+    width: 100%;
+  }
+
+  .side-transactions-header {
+    top: -1vh;
+    text-align: center;
+  }
+
+  .side-transactions-header,
+  .side-transactions-table-head,
+  .side-transactions-table-body {
+    position: relative;
+  }
+
+  .side-transactions-table-head-content {
+    display: flex;
+    flex-direction: row;
+    border-bottom: 1px solid blueviolet;
+    border-top: 1px solid blueviolet;
+    width: 100%;
+  }
+
+  .side-transactions-table-head-content p {
+    text-align: center;
+  }
+
+  .transaction-first-four {
+    width: 5vw;
+  }
+
+  .transaction-first-four-sent-receive {
+    width: 7vw;
+    margin: 0;
+    text-align: center;
+  }
+
+  .transactions-remark {
+    width: 14vw;
+  }
+
+  .edit-delete {
+    width: 3vw;
+  }
+
+  .side-transactions-table-head {
+    width: 100%;
+    border-right: 1px solid black;
+    margin: 0;
+    top: 0;
+  }
+
+  .side-transactions-table-body {
+    top: 0;
+    overflow-y: scroll;
+    width: 100%;
+  }
+
+  /*
+  .side-transactions-table-body::-webkit-scrollbar-corner {
+  }   */
+}
+
+@media only screen and (max-width: 428px) {
+  .side-transactions-header {
+    display: none;
+  }
+
+  .side-transactions-container {
+    width: 100vw;
+  }
+
+  .side-transactions-list {
+    display: flex;
+    flex-direction: column;
+    height: 87vh;
+    width: 100%;
+  }
+
+  .side-transactions-header,
+  .side-transactions-table-head,
+  .side-transactions-table-body {
+    position: relative;
+  }
+
+  .side-transactions-table-head-content {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border-bottom: 1px solid blueviolet;
+    border-top: 1px solid blueviolet;
+    width: 100%;
+    height: 4vh;
+    align-items: center;
+  }
+
+  .side-transactions-table-head-content p {
+    text-align: center;
+    margin: 0;
+  }
+
+  .transaction-first-four {
+    width: 20vw;
+  }
+
+  .transaction-first-four-sent-receive {
+    width: 30vw;
+    margin: 0;
+    text-align: center;
+  }
+
+  .transactions-remark {
+    width: 10vw;
+  }
+
+  .edit-delete {
+    width: 14vw;
+  }
+
+  .side-transactions-table-head {
+    width: 100%;
+    border-right: 1px solid black;
+    margin: 0;
+    top: 15vh;
+  }
+
+  .side-transactions-table-body {
+    top: 15vh;
+    overflow-y: scroll;
+    height: 70vh;
+    width: 100%;
+
+    /* margin-bottom: 10px; */
+  }
+
+  .side-transactions-table-body::-webkit-scrollbar {
+    display: none;
+  }
+
+  .side-transactions-table-body p {
+    margin: 0;
+    text-align: center;
+  }
+
+  .transactions-remark-small {
+    display: none;
+  }
+
+  .transaction-first-four-small {
+    display: none;
+  }
+}
