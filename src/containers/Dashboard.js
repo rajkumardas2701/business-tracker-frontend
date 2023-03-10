@@ -9,6 +9,7 @@ import SessionContext from '../contexts/SessionContext';
 import ExcelExport from '../components/ExportExcel';
 import CreateDeal from '../components/CreateDeal';
 import CreateTransaction from '../components/CreateTransaction';
+import EditTransaction from '../components/EditTransaction';
 
 const Dashboard = () => {
   const [deals, setDeals] = useState([]);
@@ -114,6 +115,7 @@ const Dashboard = () => {
           setShowCreateTransaction={setShowCreateTransaction}
         />
         )}
+        { showEditTransactionForm && <EditTransaction /> }
       </DashboardContext.Provider>
     </div>
   );

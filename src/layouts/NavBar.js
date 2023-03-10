@@ -11,6 +11,7 @@ const NavBar = () => {
       user: {},
       message: '',
     });
+    console.log('clicked on sign out');
     e.preventDefault();
   };
 
@@ -24,7 +25,7 @@ const NavBar = () => {
       </p>
       <div className="user-greet">
         <p>
-          Hi!&nbsp;
+          Hi,&nbsp;
         </p>
         <p className="navbar-name">
           {sessionDetails.user && sessionDetails.user.name ? sessionDetails.user.name.split(' ')[0] : 'there'}
