@@ -30,7 +30,7 @@ You need to have <a href="https://nodejs.org/en/">Node</a> installed on your com
 
 To get a local copy of the repository, run below commands in sequence on your terminal
 
-<pre>git clone https://github.com/rajkumardas2701/business-tracker-backend.git</pre>
+<pre>git clone https://github.com/rajkumardas2701/business-tracker-frontend.git</pre>
 <pre>cd business-tracker-frontend</pre>
 <pre>npm install</pre>
 <pre>npm start</pre>
@@ -49,7 +49,7 @@ To get a local copy of the repository, run below commands in sequence on your te
 
 Contributions, issues and feature requests are welcome!
 
-Feel free to check the [issues page](https://github.com/rajkumardas2701/business-tracker-backend/issues).
+Feel free to check the [issues page](https://github.com/rajkumardas2701/business-tracker-frontend/issues).
 
 ## Show your support
 
