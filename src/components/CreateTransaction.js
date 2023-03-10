@@ -176,8 +176,6 @@ const CreateTransaction = ({ setShowCreateTransaction }) => {
                     onClick={handleDealYesClick}
                     onChange={handleOptionChange}
                   />
-                  {/* {console.log(`Deal Yes: ${selectedOption === 'dealYes'}
-                  Deal yes rendered`)} */}
                 </div>
               )
           }
@@ -191,8 +189,6 @@ const CreateTransaction = ({ setShowCreateTransaction }) => {
               onChange={handleOptionChange}
               onClick={handleDealNoClick}
             />
-            {/* {console.log(`Deal No: ${selectedOption === 'dealNo'}
-             Deal No rendered`)} */}
           </div>
         </div>
         <div className="btn-container">

@@ -1,8 +1,6 @@
 import { Route, createRoutesFromElements, createBrowserRouter } from 'react-router-dom';
-// import Login from './components/Login';
 import App from './components/App';
 import NotFound from './layouts/NotFound';
-// import Signup from './components/SignUp';
 
 const Router = createBrowserRouter(
   createRoutesFromElements(

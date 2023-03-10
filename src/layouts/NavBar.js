@@ -11,7 +11,6 @@ const NavBar = () => {
       user: {},
       message: '',
     });
-    // console.log('clicked on sign out');
     e.preventDefault();
   };
 

@@ -38,7 +38,6 @@ DeleteWarning.propTypes = {
   fn: PropTypes.func.isRequired,
   deleteTxID: PropTypes.number,
   dealID: PropTypes.number,
-  // setShowEditTransactionForm: PropTypes.func.isRequired,
 };
 
 DeleteWarning.defaultProps = {

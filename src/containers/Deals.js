@@ -44,7 +44,6 @@ const Deals = () => {
       <div className="transactions-container">
         <DealTransactions dealTransacts={dealTransacts} dealName={dealName} />
       </div>
-      {/* { showEditTransactionForm && <EditTransaction /> } */}
       {showDeleteWarning && <DeleteWarning fn={setShowDeleteWarning} dealID={dealID} />}
     </div>
   );

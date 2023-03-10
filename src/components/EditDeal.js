@@ -3,7 +3,6 @@ import { useContext, useState } from 'react';
 import DashboardContext from '../contexts/DashboardContext';
 import { updateDeal } from '../utils/apiCalls';
 import '../styles/AuthForm.css';
-// import '../styles/CreateTransaction.css';
 
 const EditDeal = ({ deal, setShowEditDeal }) => {
   const {
