@@ -1,70 +1,60 @@
-# Getting Started with Create React App
+# Business-Tracker-Frontend
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+> Frontend supporting Mobile and Desktop version to help you track your business related deals and transactions in one place.
 
-## Available Scripts
+## Built with
+1. ReactJS
+2. HTML5 and CSS3
 
-In the project directory, you can run:
+The Backend API of this app is linked <a href="https://github.com/rajkumardas2701/business-tracker-backend">here</a>
 
-### `npm start`
+## Screenshots
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Main features
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+1. Business owners can sign up or login to the service.
+2. Create deals you make with farmers and other parties while buying and selling to other dealers. You see realtime, profit or loss status of each deal when you mention buying and selling prices with other expenses.
+3. Enter Transactions made related to Deals and other unrelated transactions.
+4. Get an option to edit or delete deals and transactions.
+5. See overall balance (profit or loss) made from all the transactions you have done, including deals and other transactions.
 
-### `npm test`
+## Live version
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Click <a href="https://elegant-cascaron-fb6a74.netlify.app/">here</a> to see the live version on Netlify.
 
-### `npm run build`
+## Getting started
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+This project was bootstrapped with <a href="https://github.com/facebook/create-react-app">Create React App</a>.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+You need to have <a href="https://nodejs.org/en/">Node</a> installed on your computer.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+To get a local copy of the repository, run below commands in sequence on your terminal
 
-### `npm run eject`
+<pre>git clone https://github.com/rajkumardas2701/business-tracker-backend.git</pre>
+<pre>cd business-tracker-frontend</pre>
+<pre>npm install</pre>
+<pre>npm start</pre>
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+`npm start` will open your default browser to load the app.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Authors
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+👤 **Rajkumar Das**
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+- Github: [@rajkumardas2701](https://github.com/rajkumardas2701)
+- Twitter: [@Rajkuma58621299](https://twitter.com/Rajkuma58621299)
+- Linkedin: [Rajkumar Das](https://www.linkedin.com/in/rajkumar-das-41308961/)
 
-## Learn More
+## 🤝 Contributing
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Contributions, issues and feature requests are welcome!
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Feel free to check the [issues page](https://github.com/rajkumardas2701/business-tracker-backend/issues).
 
-### Code Splitting
+## Show your support
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Give a ⭐️ if you like this project!
 
-### Analyzing the Bundle Size
+## 📝 License
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+This project is [MIT](lic.url) licensed.
