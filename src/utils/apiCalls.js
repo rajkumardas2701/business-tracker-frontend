@@ -41,6 +41,14 @@ const fetchDeals = async (setDeals, setApiMsg, setShowMessage,
         Authorization: `${JSON.parse(localStorage.getItem('authToken')).token}`,
       },
     }, { withCredentials: true });
+    // check
+    // const result1 = await axios.post(`${apiURL}/cable`, {
+    //   headers: {
+    //     Authorization: `${JSON.parse(localStorage.getItem('authToken')).token}`,
+    //   },
+    // }, { withCredentials: true });
+    // console.log(result1);
+    // remove
     setDeals(result.data.deals);
     setApiMsg(result.data.message);
     setShowMessage(true);

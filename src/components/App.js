@@ -3,6 +3,7 @@ import NavBar from '../layouts/NavBar';
 import SessionContext from '../contexts/SessionContext';
 import Auth from '../containers/Auth';
 import Dashboard from '../containers/Dashboard';
+// import Chats from '../containers/Chats';
 import '../styles/App.css';
 
 const App = () => {
@@ -19,7 +20,8 @@ const App = () => {
       }}
       >
         <NavBar />
-        {localStorage.getItem('authToken') && sessionDetails.logged_in ? <Dashboard /> : <Auth /> }
+        {localStorage.getItem('authToken')
+        && sessionDetails.logged_in ? <Dashboard /> : <Auth /> }
       </SessionContext.Provider>
     </div>
   );
