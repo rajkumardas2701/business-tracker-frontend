@@ -1,6 +1,6 @@
 import axios from 'axios';
 import apiURL from '../constants/constant';
-import consumer from './cable';
+// import consumer from './cable';
 
 const authCall = async (user, setSessionDetails, type, setShowAuthLoader) => {
   setShowAuthLoader(true);
@@ -287,20 +287,20 @@ const deleteTxCall = async (setTxs, deleteTxID, setApiMsg,
   }
 };
 
-const dealsChannel = async (setDeals, setApiMsg, setShowMessage, sessionDetails) => {
-  consumer.subscriptions.create({ channel: 'DealChannel', user_id: sessionDetails.user.id }, {
-    received(data) {
-      setDeals(data.deals);
-      setApiMsg(data.message);
-      setShowMessage(true);
-      setTimeout(() => {
-        setShowMessage(false);
-      }, 5000);
-    },
-  });
-};
+// const dealsChannel = async (setDeals, setApiMsg, setShowMessage, sessionDetails) => {
+//   consumer.subscriptions.create({ channel: 'DealChannel', user_id: sessionDetails.user.id }, {
+//     received(data) {
+//       setDeals(data.deals);
+//       setApiMsg(data.message);
+//       setShowMessage(true);
+//       setTimeout(() => {
+//         setShowMessage(false);
+//       }, 5000);
+//     },
+//   });
+// };
 
 export {
   authCall, fetchDeals, postDeal, updateDeal,
-  deleteDealCall, fetchTxs, postTx, updateTx, deleteTxCall, dealsChannel,
+  deleteDealCall, fetchTxs, postTx, updateTx, deleteTxCall,
 };

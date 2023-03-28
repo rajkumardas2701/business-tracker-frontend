@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from 'react';
-import { fetchDeals, fetchTxs, dealsChannel } from '../utils/apiCalls';
+import { fetchDeals, fetchTxs } from '../utils/apiCalls';
 import DashboardContext from '../contexts/DashboardContext';
 import Deals from './Deals';
 import '../styles/Dashboard.css';
@@ -20,15 +20,15 @@ const Dashboard = () => {
   const [txs, setTxs] = useState([]);
   const [showEditTransactionForm, setShowEditTransactionForm] = useState(false);
   const [editFormData, setEditFormData] = useState({});
-  const { setSessionDetails, sessionDetails } = useContext(SessionContext);
+  const { setSessionDetails } = useContext(SessionContext);
   const [showApiMsgLoader, setShowApiMsgLoader] = useState(false);
   const [showDeals, setShowDeals] = useState(false);
   const [showCreateDeal, setShowCreateDeal] = useState(false);
   const [showCreateTransaction, setShowCreateTransaction] = useState(false);
 
-  useEffect(() => {
-    dealsChannel(setDeals, setApiMsg, setShowMessage, sessionDetails);
-  }, [setDeals, setApiMsg, setShowMessage, sessionDetails]);
+  // useEffect(() => {
+  //   dealsChannel(setDeals, setApiMsg, setShowMessage, sessionDetails);
+  // }, [setDeals, setApiMsg, setShowMessage, sessionDetails]);
   useEffect(() => {
     fetchDeals(setDeals, setApiMsg, setShowMessage, setMsgColor,
       setSessionDetails, setShowApiMsgLoader);
